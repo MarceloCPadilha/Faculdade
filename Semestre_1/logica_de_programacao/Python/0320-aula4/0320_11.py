@@ -9,7 +9,7 @@ Fórmula: Centígrados = ----------------------------
 tempFahr = float(input("Digite uma temperatura em fahrenheit: "))
 
 def convertToCelcius(tempFahr):
-	tempCelc = ((tempFahr	- 32) * 5) / 9
+	tempCelc = ((tempFahr - 32) * 5) / 9
 	return tempCelc
 
 print(convertToCelcius(tempFahr))
