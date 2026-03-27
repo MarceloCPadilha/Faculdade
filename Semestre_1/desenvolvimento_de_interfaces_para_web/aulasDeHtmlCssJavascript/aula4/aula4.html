@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<!-- Imagem externa(não aconselhável) -->
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWGc-w6Dqaw9a3dvgNSMr-AkKgz8rZCli31g&s" alt="Gago fofo">
+	<!-- Imagem interna -->
+	<img src="./imagens/Gago1.jpg" alt="Gago mais fofo">
+	
+
+
+	<!-- Links externos -->
+	<!-- coloque target blank para abrir uma nova aba -->
+	<h2>Trabalhando com Links</h2>
+	<a href="https://senac.blackboard.com" target="_blank">Blackboard</a>
+	<br>
+
+	<a href="https://senac.blackboard.com" target="_blank"><img src="./imagens/Gago1.jpg" alt="Gago mais fofo"></a>
+	<br>
+
+
+	<!-- link para imagens na mesma pagina -->
+	<a href="#Gago2">Vai para o gago</a>
+	<br>
+
+
+
+
+	<!-- button link(sem abrir nova aba) -->
+	<button onclick="document.location='https://senac.blackboard.com'">ME APERTA</button>
+	<br>
+	<!-- button link -->
+	<button onclick="window.open('https://senac.blackboard.com', '_blank')">ME APERTA</button>
+	<br>
+	<!-- button para imprimir a pagina -->
+	<button onclick="window.print()">ME APERTA</button>
+	<br>
+
+	<p onclick="window.open('https://senac.blackboard.com', '_blank')">Paragráfo</p>
+
+	<!-- Um dos maiores erros/pecados da humanidade -->
+	<img onmouseenter="window.open('https://senac.blackboard.com', '_blank'" id="Gago2" src="./imagens/Gago1.jpg">
+	
+
+</body>
+</html>
