@@ -1,0 +1,34 @@
+body {
+	font-family: verdana, sans-serif;
+}
+h1 {
+	font-family: arial, helvetica, verdana, sans-serif;
+	font-size: 72px;
+	font-style: italic /* normal - itali - oblique */;
+	font-weight: bold; /* bold - bolder - (numeral) */
+	text-transform: capitalize; /* uppercase - lowercase */
+	text-decoration: underline line-through overline wavy;
+/*	color: rgb(70 90 22 / 1.0);*/
+/*	color: #9555FA;*/
+	color: #ddd;
+	text-align: center;/* left, right, center*/
+
+}
+p {
+	font-size: 24px;
+	line-height: 36px;
+	text-align: justify;
+}
+.destaque {
+	text-align: justify;
+}
+
+.animes {
+	list-style: outside;/* inside - outside */
+	list-style-type: circle; /* none - dusc - circle - square */
+	/* list-style-image: ; */
+}
+
+.molhos {
+	list-style-type: lower-alpha;/* decimal - lower-roman - upper-roman - upper-alpha */
+}

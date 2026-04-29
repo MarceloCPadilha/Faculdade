@@ -1,0 +1,85 @@
+* {
+	margin: 0;
+	font-family: arial, sans-serif;
+}
+.topo {
+	background: #ddd;
+	text-align: center;
+	padding: 20px;
+}
+.logo {
+	font-size: 42px;
+	font-weight: bold;
+	color: #333;
+	width: 250px;
+	margin: 0 auto;
+}
+.menu ul {
+	padding: 0;
+	list-style: none;
+	margin-top: 35px;
+}
+.menu li {
+	display: inline-block;
+}
+.menu li a {
+	padding: 5px 15px 5px 15px;
+	font-size: 20px;
+	text-decoration: none;
+	color: #333;
+}
+/* hover - evento que dispara ao colocar o mouse em cima */
+.menu li a:hover {
+	color: orange;
+	border-bottom: solid 3px orange;
+
+}
+.logo:hover {
+	color: orange;
+	font-style: italic;
+	cursor: pointer;
+}
+.coluna {
+	/* background: #333; */
+	color: #fff;
+	width: 33%;
+	text-align: center;
+	float: left;
+	margin: 40px 0px;
+	padding: 20px;
+	/* leva em consideração que blocos tem padding ou borda */
+	box-sizing: border-box;
+}
+.card {
+	background: #333;
+	border: solid 2px #000;
+	border-radius: 20px;
+	box-shadow: 5px 5px 10px 1px blueviolet;
+}
+.card:hover {
+	box-shadow: 8px 8px 16px #000;
+}
+.servicos {
+	overflow: hidden;
+}
+.bt {
+	background: #c87cda;
+	color: #fff;
+	text-decoration: none;
+	font-size: 24px;
+	padding: 15px 30px;
+	display: block;
+	margin: 20px auto;
+	width: 125px;
+	box-shadow: inset 0px 0px 4px 1px rgb(74, 128, 146);
+	text-shadow: 2px 2px 4px #000;
+}
+.bt:hover {
+	background: #fff;
+	border: solid 1px blueviolet;
+	color: blueviolet;
+	box-shadow: inset 1px 1px 82px #000;
+	border-radius: 8px;
+	text-shadow: 0 0 3px #000;
+}
+

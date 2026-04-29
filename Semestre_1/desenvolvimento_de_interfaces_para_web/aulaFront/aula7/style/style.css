@@ -1,0 +1,38 @@
+* {
+	font-family: arial;
+}
+
+.info {
+	background-color: #000;
+	color: #fff;
+	width: 60%;
+	height: 1000px;
+	background-image: url(../img/images.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	/* left - right - top - bottom - center */
+	background-size: cover;
+	/* reapeat - repeat-x - repeat-y - no-repeat	*/
+}
+
+.info h2 {
+	background-image: linear-gradient(90deg, #f06 0%, #f06 33%, #0fc 33%, #0fc 66%, #f60 66%, #f60 100%);
+}
+
+body {
+	background-color: #ddd;
+	background-image: url(../img/milkyWay.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: none;
+	/* scroll - fixes */
+	background-position: center;
+}
+
+.card {
+	width: 60%;
+	height: 300px;
+	background-image: url(../img/montanha.jpg);
+	background-position: center;
+	background-size: 100%;
+}

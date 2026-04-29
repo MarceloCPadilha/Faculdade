@@ -2,6 +2,7 @@
 
 vA, vB = int(input("Digite o primeiro número: ")), int(input("Digite o segundo número: "))
 
+# usando funções assim pra permitir colocar quantidades indeterminados de variaveis
 def soma(*args):
 	soma = 0
 	for i in range(len(args)):

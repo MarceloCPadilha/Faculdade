@@ -1,0 +1,88 @@
+* {
+	font-family: arial;
+	text-align: justify;
+}
+*:hover {
+	transform: rotate(45deg);
+}
+h1 {
+	color: lightseagreen;
+	font-size: 48px;
+}
+h2 {
+	color: red;
+	font-size: 36px;
+}
+p {
+	color: black;
+	font-size: 17px;
+}
+p:hover {
+	color: white;
+	font-size: 50px;
+}
+p:first-child() {
+	color: skyblue;
+}
+p:nth-child(2) {
+	color: darkred;
+}
+body {
+	height: 100vh;
+	background-image: linear-gradient(69deg,
+		rgb(255,0,0),
+		rgb(255,32,0),
+		rgb(255,64,0),
+		rgb(255,96,0),
+		rgb(255,128,0),
+		rgb(255,160,0),
+		rgb(255,192,0),
+		rgb(255,224,0),
+		rgb(255,255,0),
+
+		rgb(224,255,0),
+		rgb(192,255,0),
+		rgb(160,255,0),
+		rgb(128,255,0),
+		rgb(96,255,0),
+		rgb(64,255,0),
+		rgb(32,255,0),
+		rgb(0,255,0),
+
+		rgb(0,255,32),
+		rgb(0,255,64),
+		rgb(0,255,96),
+		rgb(0,255,128),
+		rgb(0,255,160),
+		rgb(0,255,192),
+		rgb(0,255,224),
+		rgb(0,255,255),
+
+		rgb(0,224,255),
+		rgb(0,192,255),
+		rgb(0,160,255),
+		rgb(0,128,255),
+		rgb(0,96,255),
+		rgb(0,64,255),
+		rgb(0,32,255),
+		rgb(0,0,255),
+
+		rgb(32,0,255),
+		rgb(64,0,255),
+		rgb(96,0,255),
+		rgb(128,0,255),
+		rgb(160,0,255),
+		rgb(192,0,255),
+		rgb(224,0,255),
+		rgb(255,0,255),
+
+		rgb(255,0,224),
+		rgb(255,0,192),
+		rgb(255,0,160),
+		rgb(255,0,128),
+		rgb(255,0,96),
+		rgb(255,0,64),
+		rgb(255,0,32),
+		rgb(255,0,0));
+	
+}
