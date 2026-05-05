@@ -1,9 +1,6 @@
 # Faculdade Unisenac
 ## Curso - Análise e Desenvolvimento de Sistemas
 
-### Disclaimer
-Os códigos apresentados não tem sempre como objetivo a performance, estou também testando os novos conhecimentos adquiridos
-
 ### Estrutura das pastas
 ./repositorio/semestre/cadeira/contexto/aula
 
@@ -30,9 +27,3 @@ background syles, atividade
 estrutura do style, atividade
 - aula 9
 mais style
-
-pra mim
-data e quantidadeDeExercicios
-cmd /v:on /c "for /l %i in (1,1,quantidadeDeExercicios) do (set "n=0%i" & type nul > data_!n:~-2!.py)"
-esse comando para cmd cria os arquivos dos meus exercicios de python
-mude "data" para a data mmdd e quantidadeDeExercicios para o numero de exercicios exemplo dia 5 do mês 4 -> 0405 e 1 exercicios -> 11
