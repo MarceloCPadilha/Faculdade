@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container {
+    background-color: #F7F7F7;
+    box-shadow: 0px 0px 4px 1px gray;
+    border-radius: 15px;
+    margin: 5vh 10vw;
+    overflow: hidden;
+    padding: 1%;
+}
+.container > div {
+    text-align: center;
+}
+.card-menor {
+    width: 23%;
+    float: left;
+}
+.card-maior {
+    width: 31.25%;
+    float: left;
+}
+.card-maior, .card-menor {
+    margin: 1%;
+    background-color: white;
+    box-shadow: 1px 1px 4px 1px black;
+    border-radius: 15px;
+}
+.card-menor > img {
+    width: 70%;
+    height: auto;
+}
+.card-maior > img {
+    height: auto;
+    width: 85%;
+}

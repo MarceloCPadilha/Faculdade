@@ -1,0 +1,59 @@
+.carta {
+    text-align: center;
+    font-size: 56px;
+    padding: 100px 50px;
+    width: 70px;
+    border: solid 1px #333;
+    box-shadow: 1px 2px 6px #333;
+    border-radius: 10px;
+    margin: 5px;
+    background: #f7f7f7;
+}
+.bloco-1 {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: 9;
+}
+.bloco-2 {
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    z-index: 99;
+}
+.bloco-3 {
+    position: absolute;
+    top: 60px;
+    left: 300px;
+    z-index: -11;
+}
+.container {
+    position: relative;
+    border: solid 1px red;
+    width: 80%;
+    height: 450px;
+    margin: 100px auto;
+}
+
+.whats {
+    background: #4cad50;
+    width: 200px;
+    padding: 10px;
+    border-radius: 200px;
+    box-shadow: 0 0 6px #333;
+    border: solid 1px #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+.whats a {
+    font-family: verdana, sans-serif;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+.whats img {
+    vertical-align: middle;
+
+}
