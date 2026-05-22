@@ -1,0 +1,141 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, rgb(138 44 215), rgb(66 19 104)49%, rgb(52 8 88)50%, rgb(98 31 151));
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 60vw;
+    height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info {
+    margin-right: 5%;
+    width: 45%;
+    height: 100%;
+    float: left;
+}
+
+.infop {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3vw;
+    text-align: center;
+    height: 15%;
+    width: 100%;
+}
+.infop h2 {
+    font-size: 1.6vw;
+}
+
+.infop span {
+    color: rgb(243 171 73);
+}
+
+.mes {
+    background: rgb(243 171 73);
+    transform: skewX(-30deg);
+    text-align: center;
+    box-shadow: -4px -5px 0 1px rgb(170 94 232), 4px 5px 0 1px rgb(51 13 81);
+    border-radius: 10px 4px;
+    height: 15%;
+    margin-bottom: 5%;
+    position: relative;
+}
+
+.mes h2 {
+    font-size: 3.5vw;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skewX(30deg); 
+}
+
+.img {
+    float: right;
+    overflow: hidden;
+    width: 60vh;
+    height: 60vh; 
+    margin-top: 5vh;
+    border-radius: 50%;
+    box-shadow: -4px -5px 0 1px rgb(170 94 232), 4px 5px 0 1px rgb(51 13 81);
+}
+
+.img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cursos {
+    width: 100%;
+    height: 60%;
+    color: rgb(51 13 81);
+    font-weight: bold;
+}
+
+.curso {
+    margin-bottom: 4%;
+    height: 22%;
+    width: 100%; 
+    background: white;
+    border-radius: 50px;
+}
+
+.curso:last-child {
+    margin-bottom: 0;
+}
+
+.data {
+    margin-top: 2%;
+    width: 30%;
+    height: 75%;
+    float: left;
+    position: relative;
+    border-right: solid 2px gray;
+}
+
+.data img {
+    height: 40%;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+}
+
+.data p {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translateY(-50%);
+    font-size: 1.1vw;
+}
+
+.nome_curso {
+    height: 100%;
+    width: 70%;
+    float: right;
+    position: relative;
+}
+
+.nome_curso p {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    font-size: 1.1vw;
+}

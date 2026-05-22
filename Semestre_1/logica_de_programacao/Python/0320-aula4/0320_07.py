@@ -28,7 +28,7 @@ def bubblesort(lista):
 			break
 	return lista
 
-print(bubblesort(lista1))
+print(bubblesort(lista))
 
 # forma 2
 # def quicksort():

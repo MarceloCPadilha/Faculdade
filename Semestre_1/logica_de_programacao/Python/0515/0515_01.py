@@ -25,25 +25,25 @@ Coloque uma observação no início do código dizendo se você utilizou ou não
 
 # tire o comentario do valor dentro do dict_prof e coloque o primeiro for loop inteiro dentro de um comentario pra testar
 dict_prof = {
-     # 'prof1': {'nome': 'prof1', 'nota_soma': 40, 'nota_media': 1.0}, 'prof2': {'nome': 'prof2', 'nota_soma': 40, 'nota_media': 2.0}, 'prof3': {'nome': 'prof3', 'nota_soma': 40, 'nota_media': 3.0}, 'prof4': {'nome': 'prof4', 'nota_soma': 40, 'nota_media': 4.0}, 'prof5': {'nome': 'prof5', 'nota_soma': 40, 'nota_media': 5.0}, 'prof6': {'nome': 'prof6', 'nota_soma': 40, 'nota_media': 1.0}, 'prof7': {'nome': 'prof7', 'nota_soma': 40, 'nota_media': 2.0}, 'prof8': {'nome': 'prof8', 'nota_soma': 40, 'nota_media': 3.0}, 'prof9': {'nome': 'prof9', 'nota_soma': 40, 'nota_media': 4.0}, 'prof10': {'nome': 'prof10', 'nota_soma': 40, 'nota_media': 5.0}
+     'prof1': {'nome': 'prof1', 'nota_soma': 40, 'nota_media': 1.0}, 'prof2': {'nome': 'prof2', 'nota_soma': 40, 'nota_media': 2.0}, 'prof3': {'nome': 'prof3', 'nota_soma': 40, 'nota_media': 3.0}, 'prof4': {'nome': 'prof4', 'nota_soma': 40, 'nota_media': 4.0}, 'prof5': {'nome': 'prof5', 'nota_soma': 40, 'nota_media': 5.0}, 'prof6': {'nome': 'prof6', 'nota_soma': 40, 'nota_media': 1.0}, 'prof7': {'nome': 'prof7', 'nota_soma': 40, 'nota_media': 2.0}, 'prof8': {'nome': 'prof8', 'nota_soma': 40, 'nota_media': 3.0}, 'prof9': {'nome': 'prof9', 'nota_soma': 40, 'nota_media': 4.0}, 'prof10': {'nome': 'prof10', 'nota_soma': 40, 'nota_media': 5.0}
 }
 qntd_professores = 10
 qntd_alunos = 8
 
-for professor in range(1, qntd_professores + 1):
-     soma_notas = 0
-     nome_do_professor = input("Digite o nome do {}º professor: ".format(professor))
-     for aluno in range(1, qntd_alunos + 1):
-          nota = int(input("Digite a {}ª nota: ".format(aluno)))
-          soma_notas = soma_notas + nota
-          if nota > 5 or nota < 1:
-               print("valor errado")
-               exit()
+# for professor in range(1, qntd_professores + 1):
+#      soma_notas = 0
+#      nome_do_professor = input("Digite o nome do {}º professor: ".format(professor))
+#      for aluno in range(1, qntd_alunos + 1):
+#           nota = int(input("Digite a {}ª nota: ".format(aluno)))
+#           soma_notas = soma_notas + nota
+#           if nota > 5 or nota < 1:
+#                print("valor errado")
+#                exit()
 
-     media_notas = soma_notas / qntd_alunos
-     nome_variavel = "prof{}".format(professor)
+#      media_notas = soma_notas / qntd_alunos
+#      nome_variavel = "prof{}".format(professor)
 
-     dict_prof[nome_variavel] = {"nome" : nome_do_professor, "nota_soma" : soma_notas, "nota_media" : media_notas}
+#      dict_prof[nome_variavel] = {"nome" : nome_do_professor, "nota_soma" : soma_notas, "nota_media" : media_notas}
 
 
 sort = sorted(dict_prof.values(), key=lambda j: j["nota_media"])
