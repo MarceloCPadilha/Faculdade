@@ -46,10 +46,22 @@ qntd_alunos = 8
 #      dict_prof[nome_variavel] = {"nome" : nome_do_professor, "nota_soma" : soma_notas, "nota_media" : media_notas}
 
 
-sort = sorted(dict_prof.values(), key=lambda j: j["nota_media"])
+chaves = list(dict_prof.keys())
+rang = len(chaves)
 
-print("\n\n")
+print(dict_prof)
+for i in range(rang):
+     for j in range(rang - i - 1):
+          if dict_prof[chaves[j]]["nota_media"] > dict_prof[chaves[j + 1]]["nota_media"]:
+               chaves[j + 1], chaves[j] = chaves[j], chaves[j + 1]
 
-for i in sort:
-     print("nome:", i["nome"], "\n" "nota_soma", i["nota_soma"], "\n" "nota_media:", i["nota_media"])
-     print()
+for i in chaves:
+     print("Nome: {}\nNota soma: {}\nNota média: {}".format(dict_prof[i]["nome"], dict_prof[i]["nota_soma"], dict_prof[i]["nota_media"]))
+
+# sort = sorted(dict_prof.values(), key=lambda j: j["nota_media"])
+
+# print("\n\n")
+
+# for i in sort:
+#      print("nome:", i["nome"], "\n" "nota_soma", i["nota_soma"], "\n" "nota_media:", i["nota_media"])
+#      print()

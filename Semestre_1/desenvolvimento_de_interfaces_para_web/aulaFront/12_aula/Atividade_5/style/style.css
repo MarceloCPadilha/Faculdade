@@ -7,7 +7,7 @@
 body {
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(135deg, rgb(138 44 215), rgb(66 19 104)49%, rgb(52 8 88)50%, rgb(98 31 151));
+    background: linear-gradient(135deg, rgb(138 44 215), rgb(74 25 113)49%, rgb(52 8 88)50%, rgb(98 31 151));
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -45,10 +45,10 @@ body {
 
 .mes {
     background: rgb(243 171 73);
-    transform: skewX(-30deg);
+    transform: skewX(-34deg);
     text-align: center;
-    box-shadow: -4px -5px 0 1px rgb(170 94 232), 4px 5px 0 1px rgb(51 13 81);
-    border-radius: 10px 4px;
+    box-shadow: -5px -5px 0 1px rgb(170 94 232), 4px 5px 0 1px rgb(51 13 81);
+    border-radius: 15px 6px;
     height: 15%;
     margin-bottom: 5%;
     position: relative;
@@ -60,7 +60,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) skewX(30deg); 
+    transform: translate(-50%, -50%) skewX(34deg); 
 }
 
 .img {

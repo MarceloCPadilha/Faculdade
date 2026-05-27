@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <style>
+        body {
+            background: rgb(168, 168, 168);
+        }
+        table {
+            background: #000;
+            color: white;
+            border-collapse: collapse;
+            width: 80%;
+            height: auto;
+        }
+        thead, tr, th, td {
+            border: solid 3px white;
+            padding: 2px;
+        }
+        tfoot tr td {
+            text-align: center;
+        }
+        
+    </style>
+
+    <h1>Entendendo as tabelas do HTML</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>matricula</th>
+                <th>Email</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Marcelo</td>
+                <td>9999999</td>
+                <td>------@email.com.br</td>
+                <td>ADS</td>
+            </tr>
+            <tr>
+                <td>Ghilherme</td>
+                <td></td>
+                <td>------@email.com.br</td>
+                <td>MODA</td>
+            </tr>
+            <tr>
+                <td>Giovanne</td>
+                <td>9999999</td>
+                <td>------@email.com.br</td>
+                <td>ADS</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Alunos ainda ativos em 2026</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
