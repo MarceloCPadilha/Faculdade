@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    
+    <form action="">
+        <fieldset>
+            <legend>Dados Pessoais:</legend>
+                
+            <input type="text" name="nome" placeholder="Seu nome">
+            <input type="email" name="email" placeholder="Seu E-mail">
+
+            <input type="number" max="150" min="0" name="idade" placeholder="Sua idade" step="5">
+            <input type="tel" name="telefone" placeholder="Seu telefone">
+
+            <input type="search" name="pesquisar" placeholder="Buscar">
+            <input type="password" minlength="8" name="senha" placeholder="Crie uma senha">
+            <input type="url" name="site" placeholder="Ou site">
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>Campos de Datas:</legend>
+            <input type="date" name="data" placeholder="Data de nascimento">
+            <input type="time" name="hore">
+            <input type="datetime-local" name="data-hora" id="">
+            <input type="month" name="mes">
+            <input type="week" name="semana">
+        </fieldset>
+
+        <h2>Campos utilitários:</h2>
+        <input type="file" name="anexo">
+        <input type="range" name="escala" max="5">
+        <input type="color" name="cor">
+
+        <div class="check">
+            <label>
+                <input type="checkbox" name="html">
+                HTML
+            </label>
+            <label>
+                <input type="checkbox" name="css">
+                CSS
+            </label>
+            
+            <label>
+                <input type="checkbox" name="php">
+                PHP
+            </label>
+            <h3>Turno de preferência:</h3>
+            <label>
+                <input type="radio" name="turno">
+                Manhã
+            </label>
+            <label>
+                <input type="radio" name="turno">
+                Tarde
+            </label>
+            <label>
+                <input type="radio" name="turno">
+                Noite
+            </label>
+
+            <h3>Autorização de dados:</h3>
+            <label>
+                <input type="checkbox" name="autoriza" required>
+                Autorizo que você tome controle sobre a minha vida...
+            </label>
+        </div>
+
+
+        <label for="selection">Escolha um curso:</label>
+        <select name="selection" id="selection" class="title">
+            <option disabled selected hidden>-- Selecione --</option>
+            <optgroup label="Front-End">
+                <option value="">JavaScript</option>
+                <option value="">HTML e CSS</option>
+            </optgroup>
+            <optgroup label="Back-End">
+                <option value="">PHP</option>
+                <option value="">Python</option>
+            </optgroup>
+            <optgroup label="Design">
+                <option value="">Figma</option>
+            </optgroup>
+        </select>
+
+        <label for="">Busque seu curso:</label>
+        <input name="lista" list="cursos">
+
+        <label for="">Observações: </label>
+        <textarea name="obs" placeholder="Alguma obsevação?"></textarea>
+
+        <!-- Botões que servem para enviar o form (usar apenas) -->
+        <input type="image" src="../img/Cat.png" alt="">
+        <input type="submit" name="enviar">
+        <button>Cadastrar</button>
+
+        <button type="reset"> reset</button>
+    </form>
+
+    <datalist id="cursos">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="PHP">PHP</option>
+        <option value="Python">Python</option>
+        
+    </datalist>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+input, textarea, select{
+    display: block;
+    margin-bottom: 8px;
+}
+
+.check input {
+    display: inline-block;
+}
+.check label {
+    display: block;
+}
+.title {
+    font-size: 18px;
+    display: block;
+    margin: 10px 0;
+}
+select {
+    margin-bottom: 10px;
+}
