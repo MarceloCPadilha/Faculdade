@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+    <form action="recebedados.php">
+        <fieldset>
+            <legend>Dados pessoais</legend>
+
+            <label for="nome">Nome Completo</label>
+            <input type="text" name="nome" id="nome" placeholder="Nome (Obrigatório)" required>
+
+            <label for="sexo">sexo</label>
+            <select name="sexo" id="sexo">
+                <option value="" disabled selected hidden>-- Selecione --</option>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+                <option value="O">Outro</option>
+                <option value="P">Prefiro não responder</option>
+            </select>
+
+            <label for="nascimento">Data de nascimento</label>
+            <input type="date" name="nascimento" id="nascimento">
+
+            <label for="email">email</label>
+            <input type="email" name="email" id="email" placeholder="exemplo@email.com (Obrigatório)" required>
+
+            <label for="urlPessoal">Site pessoal</label>
+            <input type="url" name="urlPessoal" id="urlPessoal">
+
+            <label for="endereco">Endereço (Rua, número e complemento)</label>
+            <input type="text" name="endereco" id="endereco" placeholder="(Obrigatório)" required>
+
+            <label for="cidade">Cidade</label>
+            <select name="cidade" id="cidade">
+                <option value="" disabled selected hidden>-- Selecione --</option>
+                <option value="Alvorada">Alvorada</option>
+                <option value="Canoas">Canoas</option>
+                <option value="Esteio">Esteio</option>
+                <option value="Gravataí">Gravataí</option>
+                <option value="Novo Hamburgo">Novo Hamburgo</option>
+                <option value="Passo Fundo">Passo Fundo</option>
+                <option value="Pelotas">Pelotas</option>
+                <option value="Porto Alegre">Porto Alegre</option>
+                <option value="São Leopoldo">São Leopoldo</option>
+            </select>
+
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" id="telefone">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Dados profissionais</legend>
+
+            <select name="areas" id="areas">
+                <option value="" disabled selected hidden>-- Selecione --</option>
+                <option value="design">Design</option>
+                <option value="frontend">Desenvolvimento Front-end</option>
+                <option value="backend">Desenvolvimento Back-end</option>
+                <option value="engenharia">Engenharia de Software</option>
+                <option value="bancodedados">Banco de Dados</option>
+                <option value="testes">Análise de Testes</option>
+                <option value="negocios">Análise de Negócios</option>
+                <option value="manutencao">Manutenção</option>
+            </select>
+
+            <label for="formacao">Procurar</label>
+            <input type="text" list="lista-formacao" id="formacao" name="formacao">
+
+            <datalist id="lista-formacao">
+                <option value="Ensino Fundamental"></option>
+                <option value="Ensino Médio"></option>
+                <option value="Ensino Superior"></option>
+                <option value="Especialização"></option>
+                <option value="Mestrado"></option>
+                <option value="Doutorado"></option>
+            </datalist>
+
+            <label for="historia">Breve histórico profissional</label>
+            <textarea name="historia" id="historia"></textarea>
+
+            <label for="curriculo">Upload do currículo vitae</label>
+            <input type="file" name="curriculo" id="curriculo">
+
+            <label for="horas">Disponibilidade de horas semanais</label>
+            <select name="horas" id="horas">
+                <option value="" disabled selected hidden>-- Selecione --</option>
+                <option value="10">10h</option>
+                <option value="20">20h</option>
+                <option value="30">30h</option>
+                <option value="40">40h</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Agendamento de entrevista</legend>
+
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" required>
+
+            <label for="hora">Horário</label>
+            <input type="time" name="hora" id="hora" required>
+
+            <button>Cadastrar</button>
+
+        </fieldset>
+    </form>
+
+</body>
+</html>

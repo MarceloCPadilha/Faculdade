@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial;
+            background: url(../img/back.png) no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+        }
+        .login {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.3);
+            border: solid 1px #fff;
+            padding: 60px 30px;
+            margin: 100px auto 40px auto;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 8px #fff;
+        }
+        .login h1{
+            text-align: center;
+            color: #fff;
+        }
+        .login input {
+            width: 100%;
+            padding: 10px 35px 10px 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border-radius: 200px;
+            border: solid 1px #fff;
+            background: transparent;
+            font-size: 16px;
+            color: #fff;
+        }
+        input::placeholder {
+            color: #fff;
+        }
+        .login button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 200px;
+            background: #fff;
+            border: solid 1px #f7f7f7;
+        }
+        .login button:hover {
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+        }
+        .login p {
+            text-align: center;
+            margin-top: 40px;
+            color: #fff;
+        }
+        a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        input[name="usuario"] {
+            background: url(../img/user.png) no-repeat right 10px center;
+            background-size: 20px auto;
+        }
+        input[name="senha"] {
+            background: url(../img/cadeado.png) no-repeat right 10px center;
+            background-size: 20px auto;
+        }
+    </style>
+
+    <form class="login">
+        <h1>Login</h1>
+        <input type="text" name="usuario" id="usuario" placeholder="Usuário">
+        <input type="password" name="senha" id="senha" placeholder="senha">
+        <button>Acessar</button>
+        <p>Não tem registro? <a href="#"> acesse aqui</a></p>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: arial;
+}
+body {
+    min-height: 100vh;
+    background-color: #0b0f19;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+option {
+    background: rgb(0, 170, 147);
+}
+form {
+    color: white;
+    background: linear-gradient(145deg, #1e3a8a, #065f46);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+fieldset {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.02);
+}
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #34d399;
+}
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+input, select, textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(31, 136, 96, 0.25);
+    color: white;
+    transition: all 0.3s ease;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    background: rgba(31, 136, 96, 0.5);
+    border-color: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
+}
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+input[type="file"] {
+    padding: 5px;
+    cursor: pointer;
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+button {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 48px;
+    margin: 25px auto 0 auto;
+    border: none;
+    border-radius: 8px;
+    background-color: #34d399;
+    color: #065f46;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+button:hover {
+    background-color: #059669;
+    color: white;
+}
+button:active {
+    transform: scale(0.98);
+}
