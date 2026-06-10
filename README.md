@@ -10,22 +10,34 @@ Motivo: quando ordenados por nome nos arquivos, os nomes seram ordenados em orde
 
 ### Aulas de HTML
 - aula 1
-criando html
+    - criando html
 - aula 2
-...
+    - ...
 - aula 3
-tags básicas
+    - tags básicas
 - aula 4
-Imagens, atividade
+    - Imagens
+    - atividade
 - aula 5
-Links âncora, atividade
+    - Links âncora
+    - atividade
 - aula 6
-Listas e css de listas
+    - Listas e css de listas
 - aula 7
-background syles, atividade
+    - background syles
+    - atividade
 - aula 8
-estrutura do style, atividade
+    - estrutura do style
+    - atividade
 - aula 9
-mais style
+    - mais style
 - aula 12
-positions, z-index, atividade
+    - positions
+    - z-index
+    - atividade
+- aula 13
+    - tabelas
+    - introdução a forms
+- aula 14
+    - forms
+- aula 15
