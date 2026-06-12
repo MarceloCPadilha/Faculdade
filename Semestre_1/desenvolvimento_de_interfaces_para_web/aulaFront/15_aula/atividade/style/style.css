@@ -6,7 +6,7 @@
 }
 body {
     min-height: 100vh;
-    background-color: #0b0f19;
+    background: linear-gradient(145deg, #1e3a8a, #065f46);
     display: flex;
     justify-content: center;
     padding: 40px 20px;
@@ -16,7 +16,7 @@ option {
 }
 form {
     color: white;
-    background: linear-gradient(145deg, #1e3a8a, #065f46);
+    background: linear-gradient(180deg, #1e3a8a, #065f46);
     width: 100%;
     max-width: 600px;
     padding: 30px;
