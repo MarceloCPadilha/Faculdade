@@ -120,8 +120,10 @@ while True:
         case 4:
             localizar_e_mostrar_index(lista)
         case 5:
+            print(current_indexes)
             numero_i = return_indexes(lista)
             if numero_i is not None:
                 print(numero_i)
         case 6:
+            print(current_indexes)
             somar_dois_indices(lista)
