@@ -38,12 +38,12 @@ def print_list_indexes(lista):
 def validar_numero(numero, lista):
     if numero in lista:
         return True, numero # Número está na lista
-    return False, numero, print("Número não está na lista.") # Número não está na lista
+    return False, numero # Número está na lista
 
 def remover(lista):
-    numero_ok, numero_correto = validar_numero(numero_valido("Index do número a ser removido: "), lista)
+    numero_ok, numero = validar_numero(numero_valido("Index do número a ser removido: "), lista)
     if numero_ok:
-        return lista.pop(numero_correto)
+        return lista.pop(numero)
 
 def numero_valido(mensagem):
     while True:
@@ -53,7 +53,7 @@ def numero_valido(mensagem):
             print("OPS. ")
 
 def adicionar(lista):
-    return lista.append(numero_valido("Número a ser adicionado: "), lista)
+    return lista.append(numero_valido("Número a ser adicionado: "))
 
 def substituir(lista):
     numero = numero_valido("Número a entrar: ")
@@ -61,9 +61,31 @@ def substituir(lista):
     lista[index] = numero
 
 def localizar_e_mostrar_index(lista):
-    numero_ok, x = validar_numero(numero_valido("Número a ser localizado e ter o index retornado: "), lista)
+    numero_ok, numero = validar_numero(numero_valido("Número a ser localizado e ter o index retornado: "), lista)
     if numero_ok:
-        return print(*("indice: {} número: {}\n".format(i, lista[i]) for i in range(len(lista)) if x == lista[i]))
+        return print(*("Índice[{}](Valor: {})\n".format(index, lista[index]) for index in range(len(lista)) if numero == lista[index]))
+    
+def return_indexes(lista):
+    try:
+        index = numero_valido("Digite um indice a ter seu valor retornado: ")
+        return lista[index]
+    except IndexError:
+        print("Digite um index valido, index minimo: 0. index maximo = {}".format(len(lista) - 1))  
+        return None
+    
+def somar_dois_indices(lista):
+    print("Digite os índices para realizar a soma:")
+    x = numero_valido("Digite o primeiro indice: ")
+    y = numero_valido("Digite o segundo indice: ")
+    try:
+        soma = lista[x] + lista[y]
+        print("Índice [{}](Valor: {}) + Índice [{}](Valor: {}) = {}".format(x, lista[x], y, lista[y], soma))
+        return soma
+    except IndexError:
+        print("Erro: Um ou ambos os índices digitados estão fora do intervalo da lista.")
+        print("Índices válidos vão de 0 até {}.".format(len(lista) - 1))
+        return None 
+    
 
 # =========================================================
 
@@ -98,22 +120,8 @@ while True:
         case 4:
             localizar_e_mostrar_index(lista)
         case 5:
-            try: 
-                x = int(input("Digite um indice para receber o número: "))
-                if x not in lista:
-                    raise ValueError
-                print(lista[x])
-            except ValueError:
-                print("Insira um valor válido.")
-                continue
+            numero_i = return_indexes(lista)
+            if numero_i is not None:
+                print(numero_i)
         case 6:
-            try: 
-                x = int(input("Digite o primeiro indice: "))
-                y = int(input("Digite o segundo indice: "))
-                print("{} + {} = {}".format(lista[x], lista[y], lista[x] + lista[y]))
-            except ValueError:
-                print("Digite um valor válido.")
-                continue
-            except IndexError:
-                print("List index out of range.")
-                continue
+            somar_dois_indices(lista)

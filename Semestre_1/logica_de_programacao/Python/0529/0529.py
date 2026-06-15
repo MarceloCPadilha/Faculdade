@@ -30,6 +30,43 @@ Tratar erros de entrada (ex.: valores não numéricos ou índices inexistentes).
 
 lista = [2, 3, 3, 4]
 
+#==============================================
+# Funções
+
+
+
+def input_personalizado(mensagem):
+     while True:
+        try:
+            return int(input(mensagem))
+        except ValueError:
+            print("OPS.")
+    
+
+def validar_numero(numero, lista):
+    if numero in lista:
+        return True, numero
+    return False, numero
+
+def adicionar_numero(lista):
+    lista.append(input_personalizado("Digite um número a ser adicionado: "))
+
+def remover_numero(lista):
+    validacao, numero = validar_numero(input_personalizado("Digite um número a ser removido: "), lista)
+    if validacao is True:
+        # Remove todos numeros correspondentes
+        while numero in lista:
+            lista.remove(numero)
+    else:
+        print
+    
+
+#==============================================
+
+
+
+
+
 menu = """
     Menu
     ------------------------------------------------
@@ -50,23 +87,9 @@ while True:
         continue
     match escolha:
         case 1:
-            try:
-                x = int(input("Digite um valor a ser adicionado na lista: "))
-            except ValueError:
-                print("Insira um valor válido")
-                continue
-            lista.append(x)
+            adicionar_numero(lista)
         case 2:
-            try:
-                x = int(input("Digite um número a ser retirado da lista: "))
-                if x not in lista:
-                    raise ValueError
-                for i in lista:
-                    if i == x:
-                        lista.remove(x)
-            except ValueError:
-                print("Insira um valor válido")
-                continue
+            remover_numero(lista)
         case 3:
             try:
                 x = int(input("Digite um número a ser trocado: "))
