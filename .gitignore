@@ -1,0 +1,101 @@
+# ==============================================================================
+# TEMPLATE UNIVERSAL - .gitignore
+# ==============================================================================
+
+### 1. SEGURANÇA E AMBIENTES (CRÍTICO) ###
+# Nunca suba chaves de API, senhas ou tokens de acesso
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+*.secret
+credentials.json
+
+### 2. SISTEMAS OPERACIONAIS ###
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+### 3. EDITORES DE CÓDIGO (IDEs) ###
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# Família JetBrains (IntelliJ, WebStorm, PyCharm, PhpStorm, etc)
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Sublime Text / Vim
+*.sublime-project
+*.sublime-workspace
+.*.swp
+.*.swo
+.netrwhist
+
+### 4. LOGS E ARQUIVOS TEMPORÁRIOS ###
+*.log
+logs/
+*.bak
+*.tmp
+*.temp
+.cache/
+
+### 5. PACOTES E DEPENDÊNCIAS WEB (GERAL) ###
+# Evita gigabytes de dependências baixadas no repositório
+node_modules/
+/jspm_packages/
+.npm/
+.yarn-integrity
+yarn-error.log
+
+### 6. PYTHON BÁSICO ###
+# Arquivos compilados e ambientes virtuais comuns
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+### 7. COMPRESSÕES E ARQUIVOS DE BUILD GERAIS ###
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+dist/
+build/
+target/
