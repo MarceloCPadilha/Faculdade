@@ -16,6 +16,7 @@ def ler():
     if len(lista) < limite_da_lista:
         for i in range(limite_da_lista):
             x = input_valido("Digite o {}° número: ".format(indice + 1))
+            indice = (indice + 1) % limite_da_lista
             lista.append(x)
             print(lista)
     while True:
