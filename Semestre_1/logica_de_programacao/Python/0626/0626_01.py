@@ -26,15 +26,14 @@ def ler():
     lista = [00, 00, 00, 00]
     limite_da_lista = 4
     indice = 0
-    qntd_zeros = 4
+    qntd_zeros = 2
     while True:
         for i in lista:
             print("[ {:0{}d} ]".format(i, qntd_zeros), end="")
         print(" = {:0{}d}".format(somar_lista(lista), qntd_zeros))
-        numero_ok, x = validar_10_99(numero_valido("Digite o {}° número: ".format(indice + 1)))
+        numero_ok, x = validar_10_99(numero_valido("Digite um número entre 10 e 99 para entrar na {}ª posição: ".format(indice + 1)))
         if numero_ok:
             lista[indice] = x
-            indice = looping_index(indice, limite_da_lista)
-            
+            indice = looping_index(indice, limite_da_lista)        
 
 ler()

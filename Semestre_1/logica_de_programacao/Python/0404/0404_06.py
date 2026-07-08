@@ -3,7 +3,7 @@
 
 from random import randint
 
-numeros = [randint(0, 100) for i in range(0, 5)]
+numeros = [randint(0, 100) for _ in range(0, 5)]
 # numeros = [1, 3, 5, 7, 9] # zero pares, tira o comentario pra testar com 0 pares
 
 qt_pares = sum(1 for i in numeros if i % 2 == 0)
