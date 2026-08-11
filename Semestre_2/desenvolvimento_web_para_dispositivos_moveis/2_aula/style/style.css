@@ -1,0 +1,146 @@
+/* Nome da tag */
+p {
+    font-size: 16px;
+    color: #666;
+    font-family: Verdana, sans-serif;
+}
+
+/* class . */
+.titulo {
+    font-family: Helvetica, sans-serif;
+    color: #f60;
+}
+
+/* ID # */
+#destaque {
+    background: #333;
+    padding: 5px 10px;
+    border: solid 2px #000;
+    color: #fff;
+}
+
+/* tag junto com class */
+h1.titulo{
+    text-decoration: underline;
+}
+
+/* Seletor irmão adjacente (+) */
+h1 + p{
+    color: #f60;
+}
+
+/* Seletor todos os elementos irmãos (~) */
+h2 ~ p {
+    border: solid 2px #333;
+}
+
+p a {
+    text-decoration: none;
+}
+
+/* Descendente direto (>) */
+p > a {
+    background: #000;
+    color: #fff;
+}
+
+.menu li {
+    list-style: none;
+    font-size: 18px;
+    display: inline-block;
+    padding: 5px;
+    border-left: solid 2px #333;
+}
+
+/* Pseudo classes */
+
+/* Primeiro Filho */
+.menu li:first-child {
+    border: none;
+    color: #f60;
+}
+
+/* Último Filho */
+.menu li:last-child {
+    border: none;
+    background: #f60;
+    color: #fff;
+    border-radius: 7px;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+/* Escolhes o número do elemento que vai ser utilizado */
+.lista li:nth-child(3) {
+    color: blue;
+}
+
+/* odd/even para selecionar todos os elementos ímpares ou pares respectivamente */
+.lista li:nth-child(odd) {
+    background: #ddd;
+}
+.lista li:nth-child(even) {
+    background: #eee;
+}
+.lista li:nth-child(3n + 1) {
+    color: #f60;
+}
+
+/* Child/Type selectors */
+/* Para chamar pelo tipo/type é só trocar child por type */
+/* 
+p:first-child
+p:last-child
+p:only-child
+p:nth-child(1)
+p:nth-last-child(1) 
+*/
+
+.title-destaque {
+    font-size: 64px;
+    font-family: Arial, verdana, helvetica, sans-serif;
+    text-align: center;
+    margin: 100px 0;
+}
+
+/* Pseudo Elemento */
+.title-destaque::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: #f60;
+    margin: 0 auto;
+}
+
+.title-destaque::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 5px;
+    background: #f60;
+    margin: 0 auto;
+}
+
+.titulo + div p {
+    font-size: 18px;
+    margin-bottom: 80px;
+}
+
+/* Primeira letra */
+.titulo + div p::first-letter {
+    font-size: 58px;
+    font-weight: bold;
+    vertical-align: bottom;
+}
+/* Primeira linha */
+.titulo + div p::first-line {
+    color: #999;
+}
+
+h2.titulo::selection {
+    background: #000;
+    color: #ddd;
+}

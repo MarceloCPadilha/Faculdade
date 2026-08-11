@@ -45,4 +45,10 @@ Motivo: quando ordenados por nome nos arquivos, os nomes seram ordenados em orde
 - aula 16
     - estrutura
 - Trabalho de conclusão
-    - [Github do trabalho][https://github.com/MarceloCPadilha/TC-DESENVOLVIMENTO-DE-INTERFACES-PARA-WEB]
+    - [Github do trabalho](https://github.com/MarceloCPadilha/TC-DESENVOLVIMENTO-DE-INTERFACES-PARA-WEB)
+
+### Aulas de html e css pra mobile
+- aula 1 04/08/2026
+    - revisão
+- aula 2 11/08/2026
+    - css advanced selectors
