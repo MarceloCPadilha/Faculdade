@@ -69,7 +69,18 @@ body {
     border-radius: 0 10px 10px 10px;
     /* display: none; não tem transição */
     opacity: 0;
-    transition: all 0.3s linear;
+    /* deixa o elemento atras dos outros itens na tela para que ele não apareca caso o mouse passe por cima */
+    z-index: -1;
+    /* aplicando altura fixa para desenvolver um efeito */
+    height: 0px;
+    transition: all 0.2s linear;
+}
+
+.submenu:hover .sub{
+    display: block;
+    opacity: 1;
+    z-index: 9;
+    height: 160px;
 }
 
 .sub li {
@@ -86,7 +97,85 @@ body {
     color: #fff;
 }
 
-.submenu:hover .sub{
+.conteudo h2 {
+    text-align: center;
+}
+
+.car img {
+    height: 100px;
+    width: auto;
+    vertical-align: middle;
+    transition: 2s;
+}
+
+/* dispara o efeito quando o checkbox estiver marcado */
+#acionar:checked + .carros img{
+    margin-left: 85%;
+}
+
+.carros .car:first-child img{
+    transition-timing-function: linear;
+}
+.carros .car:nth-child(2) img{
+    transition-timing-function: ease;
+}
+.carros .car:nth-child(3) img{
+    transition-timing-function: ease-in;
+}
+.carros .car:nth-child(4) img{
+    transition-timing-function: ease-out;
+}
+.carros .car:nth-child(5) img{
+    transition-timing-function: cubic-bezier(0, 1.75, 1, -0.93);
+}
+
+.galeria {
+    margin: 100px 40px;
+}
+
+.foto {
+    width: 250px;
+    position: relative;
+    border: solid 2px #999;
+    overflow: hidden;
+}
+
+.foto::before {
+    content: "";
     display: block;
-    opacity: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    transition: all 0.2s ease;
+}
+
+.foto:hover::before {
+    backdrop-filter: blur(0px);
+    background: rgba(255, 255, 255, 0);
+}
+
+.foto::after {
+    content: "Foto do inseto";
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    position: absolute;
+    text-align: center;
+    bottom: -25px;
+    padding: 5px 0;
+    transition: all 0.2s ease;
+}
+
+.foto:hover::after {
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.foto img {
+    width: 100%;
+    display: block;
 }
