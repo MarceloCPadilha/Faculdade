@@ -52,3 +52,11 @@ Motivo: quando ordenados por nome nos arquivos, os nomes seram ordenados em orde
     - revisão
 - aula 2 11/08/2026
     - css advanced selectors
+- aula 3 18/08/2026
+    - pseudo elementos
+
+### Programação web
+- aula 1
+
+### OOP
+- aula 1
