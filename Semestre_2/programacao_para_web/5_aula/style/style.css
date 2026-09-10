@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#topo {
+    background: #000;
+    background: linear-gradient(180deg, #000, transparent);
+    color: #fff;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.logo img{
+    height: 50px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
+    padding: 30px;
+    background: url(../../img/prato.jpg) no-repeat right center, #000;
+    background-size: 50% auto;
+}
+
+.banner .infos {
+    width: 50%;
+}
+.banner h2 {
+    margin-bottom: 0;
+    color: #fac00e;
+}
+.banner h1 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 34px;
+    text-transform: uppercase;
+}
+.banner p {
+    color: #fff;
+    padding-right: 30px;
+}
+
+.sobre {
+    display: flex;
+    justify-content: space-around;
+}
+.sobre .imagem {
+    padding: 3px;
+    border: solid 2px #fac00e;
+    width: 40%;
+}
+.sobre .infos {
+    width: 50%;
+}
+.sobre .infos h2 {
+    font-size: 38px;
+    color: #fac00e;
+}
+.imagem img {
+    width: 100%;
+}
+.container {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.coluna {
+    padding: 10px;
+    text-align: center;
+}
+.coluna img {
+    width: 100%;
+    box-shadow: 1px 2px 6px #333;
+    border: solid 1px #fff;
+}
+.rodape {
+    padding: 25px;
+    text-align: center;
+    background: #000f16;
+    color: #fff;
+}
