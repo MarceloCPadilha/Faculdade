@@ -10,10 +10,6 @@
         //$idade = filter_input(INPUT_POST,'idade', FILTER_SANITIZE_NUMBER_INT);
         $idade = filter_input(INPUT_POST,'idade', FILTER_VALIDATE_INT);
 
-
-
-
-
         if (strlen(trim($nome)) <3) {
             $erros[] = "Preencha seu nome completo";
         }
