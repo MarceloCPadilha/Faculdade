@@ -1,0 +1,92 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card {
+    text-align: center;
+    width: 180px;
+    padding: 20px 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 4px #333;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: all 0.5s ease;
+}
+
+.card h2 {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.card::before {
+    content: "";
+    background: #333;
+    width: 100%;
+    height: 0;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transition: all 0.5s ease;   
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 12px #333;
+    transform: translate(-5px, -5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+
+.card:hover img {
+    transform: scale(1.2);
+}
+
+.card:hover::before {
+    height: 30%;
+}
+
+.card:hover h2 {    
+    color: #fff;
+}
+
+.card.top::before {
+    bottom: auto;
+    top: 0;
+}
+
+.card.top:hover h2, .card.left:hover h2, .card.right:hover h2 {
+    color: #333;
+}
+
+.card.left::before {
+    width: 0;
+    height: 100%;
+}
+
+.card.left:hover::before {
+    width: 30%;
+}
+
+.card.right::before {
+    width: 0;
+    height: 100%;
+    left: auto;
+}
+
+.card.right:hover::before {
+    width: 30%;
+}
+

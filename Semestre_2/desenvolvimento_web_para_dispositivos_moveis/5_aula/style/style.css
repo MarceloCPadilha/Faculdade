@@ -1,0 +1,89 @@
+.move {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    border-radius: 5px;
+    animation-name: cores;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.foguete img {
+    animation: nave 5s ease infinite alternate;
+}
+
+@keyframes cores {
+    from {
+        background: blue;
+        margin: 0;
+        transform: rotate(0);
+    }
+    to {
+        background: red;
+        margin-left: 85%;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes nave {
+    0% {
+        margin-left: 0;
+        transform: rotate(0deg);
+    }
+    10% {
+        margin-left: 0;
+        transform: rotate(45deg);
+    }
+    50% {
+        margin-left: calc(100% - 85px);
+        transform: rotate(45deg);
+    }
+    60% {
+        margin-left: calc(100% - 85px);
+        transform: rotate(-135deg);
+    }
+    95% {
+        margin-left: 0;
+        transform: rotate(-135deg);
+    }
+    100% {
+        margin-left: 0;
+        transform: rotate(0);
+    }
+}
+
+
+body {
+    margin: 0;
+}
+
+.topo {
+    background: linear-gradient(blue, darkblue);
+}
+.logo img {
+    animation: logo 3s ease infinite alternate;
+}
+
+@keyframes logo {
+    0% {
+        margin-left: 0;
+        transform: rotateX(0deg);        
+    }
+    50% {
+        margin-left: calc(100% - 128px);
+    }
+    55% {
+        margin-left: calc(100% - 128px);
+        transform: rotateX(180deg);
+    }
+    95% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: 0;
+        transform: translateX(0) rotateX(0deg);
+    }
+
+}
