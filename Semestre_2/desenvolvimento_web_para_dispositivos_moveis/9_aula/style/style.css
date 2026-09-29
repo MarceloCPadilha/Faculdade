@@ -1,0 +1,26 @@
+.coluna {
+    background: #333;
+    color: #ddd;
+    padding: 25px;
+    border: solid 1px #000;
+    border-radius: 10px;
+    font-size: 48px;
+}
+.grid {
+    display: grid;
+    /* grid-template-columns: 100px 100px 100px 100px 100px; */
+    /* grid-template-columns: 30% 20% 20% 30%; */
+
+    /* grid-template-columns: 120px 120px 120px 120px 120px 120px 120px 120px; */
+    /* grid-template-columns: repeat(8, 120px); */
+
+    grid-template-columns: 30% repeat(2, 20%) 30%;
+    grid-template-rows: 180px 230px;
+    gap: 5px;
+    justify-content: center;
+}
+
+.grid .coluna:first-child {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
