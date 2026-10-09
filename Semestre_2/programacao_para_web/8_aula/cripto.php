@@ -14,9 +14,8 @@ echo "<hr>";
 echo sha1($senha);
 echo "<hr>";
 // segundo parametro PASSWORD_DEFAULT
-echo password_hash($senha, PASSWORD_ARGON2ID);
+echo password_hash($senha, PASSWORD_DEFAULT);
 // PASSWORD_ARGON2ID, é o mais seguro, mas só funciona quando o php tem suporte para Argon2
-
-
+echo password_hash($senha, PASSWORD_ARGON2ID);
 
 ?>
