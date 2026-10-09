@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+@media (min-width: 560px) {
+    .container {   
+        background: #ec777a url(../imagens/ferrari-icon.png) no-repeat center;
+    }
+}
+@media (min-width: 496px) and (max-width: 560px) {
+    .container {   
+        background: #ec777a url(../imagens/motorcycle-icon.png) no-repeat center;
+    }
+}
+@media (max-width: 497px) {
+    .container {   
+        background: #ec777a url(../imagens/bike-icon.png) no-repeat center;
+    }
+}
