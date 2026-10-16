@@ -8,16 +8,22 @@ require_once "functions.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de usuários</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Lista de Usuários</h1>
+    <h2> 
+        <?php                
+            insertUser($conecta); 
+        ?> 
+    </h2>
 
-    <form action="POST">
+    <form method="POST">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu email" required>
         <input type="password" name="senha" placeholder="Crie uma senha" required>
-        <input type="submit" name="cadastrar" value="cadastrar" >
+        <input type="submit" name="cadastrar" value="cadastrar">
     </form>
 
     <table border="1">
@@ -26,6 +32,7 @@ require_once "functions.php";
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Data cadastro</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +46,16 @@ require_once "functions.php";
                     <td>
                         <?php
                             $data = date_create($usuario["data"]);
-                            echo date_format($data, "d/m/Y")
+                            echo date_format($data, "d/m/Y");
                         ?>
+                    </td>
+                    <td>
+                        <a href="deletar.php?id=<?php echo $usuario['id'];?>&nome=<?php echo $usuario['nome'];?>">
+                            Excluir
+                        </a>
+                        <a href="editar.php?id=<?php echo $usuario['id'];?>">
+                            Editar
+                        </a>
                     </td>
                 </tr>
 

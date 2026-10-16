@@ -1,0 +1,16 @@
+
+table{
+    border-collapse: collapse;
+    font-size: 24px;
+    margin-top: 25px;
+}
+thead{
+    background: #333;
+    color: #fff;
+}
+td, th{
+    padding: 5px;
+}
+tr{
+    border-bottom: solid 1px #333;
+}
