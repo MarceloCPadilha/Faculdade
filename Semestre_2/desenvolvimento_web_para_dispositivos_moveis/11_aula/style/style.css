@@ -1,0 +1,14 @@
+.bloco {
+    background: #333;
+    min-height: 120px;
+    color: #fff;
+    font-size: 32px;
+    border-radius: 10px;
+    border: solid 2px #666;
+    text-align: center;
+}
+
+.linha {
+    height: 450px;
+    background: #ddd;
+}

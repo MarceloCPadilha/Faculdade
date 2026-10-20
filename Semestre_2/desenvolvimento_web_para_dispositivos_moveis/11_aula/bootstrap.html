@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Link para css próprio -->
+    <link rel="stylesheet" href="./style/style.css">
+    <!-- Link do bootstrap baixado -->
+    <link rel="stylesheet" href="../../../bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <!-- Link do Javascript do bootstrap -->
+    <script src="../../../bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <table class="table table-primary table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Aluno</th>
+                            <th>Curso</th>
+                            <th>Semestre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ricardo de Oliveira</td>
+                            <td>ADS</td>
+                            <td>5º Semestre</td>
+                        </tr>
+                        <tr>
+                            <td>Silvana de Oliveira</td>
+                            <td>ADS</td>
+                            <td>3º Semestre</td>
+                        </tr>
+                        <tr>
+                            <td>Vinicius da Silva</td>
+                            <td>PMM</td>
+                            <td>1º Semestre</td>
+                        </tr>
+                        <tr>
+                            <td>João Henrique</td>
+                            <td>SPI</td>
+                            <td>3º Semestre</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div> <!-- .container end -->
+
+
+
+
+    <div class="container">
+        <h1>Iniciando com Bootstrap</h1>
+        <div class="row">
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">1</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">2</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">3</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">4</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">5</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">6</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">7</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">8</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">9</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">10</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">11</div>
+            <div class="col-xl-1 col-lg-2 col-md-3 col-sm-6 bloco">12</div>
+        </div>
+        <!-- 
+        classes:
+            mt-value = margin-top
+            mb-value = margin-bottom
+            ml-value = margin-left
+            mr-value = margin-right
+            my-value = margin top and bottom/Y axis
+            mx-value = margin left and right/x axis
+            m-value = regular margin/all sides
+            p = padding
+        value:
+            pode ser numeros ou atributos como auto
+        -->
+        <h2 class="mt-5">Exemplos de Alinhamento</h2>
+        <div class="row justify-content-evenly align-content-center my-5 linha">
+            <div class="col-md-2 bloco">Titulo</div>
+            <div class="col-md-2 bloco">Titulo</div>
+            <div class="col-md-2 bloco">Titulo</div>
+        </div>
+    </div> <!-- .container end -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-12 text-bg-dark p-3 rounded">Coluna</div>
+            <div class="col-md-3 text-bg-dark p-3 rounded">Coluna</div>
+            <div class="col-md-6 text-bg-dark p-3 rounded">Coluna</div>
+            <div class="col-md-3 text-bg-dark p-3 rounded">Coluna</div>
+        </div>
+    </div> <!-- .container end -->
+
+    <div class="container">
+        <h2 class="text-center mt-5">Últimas Notícias</h2>
+        <div class="row">
+            <div class="col-6 col-lg-3 p-2">
+                <div class="border rounded p1">
+                    <img class="img-fluid" src="../img/advogada.jpg" alt="Foto">
+                    <h3>Notícia urgente</h3>
+                    <p>Descrição breve da notícia</p>
+                    <a href="#" class="btn btn-dark d-block fs-6">
+                        Leia mais
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 p-2">
+                <div class="border rounded p1">
+                    <img class="img-fluid" src="../img/advogada.jpg" alt="Foto">
+                    <h3>Notícia urgente</h3>
+                    <p>Descrição breve da notícia</p>
+                    <a href="#" class="btn btn-dark d-block fs-6">
+                        Leia mais
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 p-2">
+                <div class="border rounded p1">
+                    <img class="img-fluid" src="../img/advogada.jpg" alt="Foto">
+                    <h3>Notícia urgente</h3>
+                    <p>Descrição breve da notícia</p>
+                    <a href="#" class="btn btn-dark d-block fs-6">
+                        Leia mais
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 p-2">
+                <div class="border rounded p1">
+                    <img class="img-fluid" src="../img/advogada.jpg" alt="Foto">
+                    <h3>Notícia urgente</h3>
+                    <p>Descrição breve da notícia</p>
+                    <a href="#" class="btn btn-dark d-block fs-6">
+                        Leia mais
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- .container end -->
+    
+</body>
+</html>
