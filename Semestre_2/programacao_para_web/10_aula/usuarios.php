@@ -1,5 +1,7 @@
 <?php
-require_once "functions.php";
+    require_once "functions.php";
+    session_start();
+    isset($_SESSION['ativa']) ? '' : header("location: index.php");
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +20,8 @@ require_once "functions.php";
             insertUser($conecta); 
         ?> 
     </h2>
+
+    <a href="logout.php">Sair</a>
 
     <form method="POST">
         <input type="text" name="nome" placeholder="Seu nome" required>

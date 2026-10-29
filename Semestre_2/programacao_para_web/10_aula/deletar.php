@@ -1,8 +1,7 @@
 <?php
 require_once "functions.php";
+isset($_SESSION['ativa']) ? '' : header("location: index.php");
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +16,10 @@ require_once "functions.php";
     ?>
     <h1>
         Tem certeza que deseja excluir o usuário 
-        <?php echo $_GET['nome']?>?
+        <?php echo $_GET['nome']; ?>?
     </h1>
-    <form action="post">
-        <input type="hidden" name="id" id="<?php echo $id ?>">
+    <form method="post">
+        <input type="hidden" name="id" value="<?php echo $id ?>">
         <button name="excluir">Deletar Usuário</button>
     </form>
     
