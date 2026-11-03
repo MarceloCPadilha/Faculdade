@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        .input_form {
+            @apply w-full p-3 mb-4 bg-white border rounded-md focus:outline-sky-400 w-full p-3 mb-4 bg-white;
+        }
+    </style>
+</head>
+<body class="bg-gray-200 h-screen flex justify-center items-center">
+    <div class="w-full sm:w-1/2 lg:w-1/3 p-2">
+        <h1 class="text-4xl">Acesso ao Sistema</h1>
+        <h2 class="text-xl mb-9">Informe seu e-mail e senha</h2>
+        <form method="post">
+            <input class="input_form w-full" type="email" name="email" placeholder="Seu e-mail" id="" required>
+            <input class="input_form w-full" type="password" name="password" placeholder="Sua senha" id="" required>
+            <button class="rounded bg-linear-to-r from-sky-300 to-violet-500 transition-all duration-300 hover:bg-linear-to-1 from-sky-400 to-violet-500 hover:text-white cursor-pointer w-full p-3 rounded-md;"name="logar">Acessar</button>
+        </form>
+    </div>
+
+</body>
+</html>
