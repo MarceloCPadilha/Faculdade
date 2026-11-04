@@ -6,23 +6,48 @@ $passDb = "";
 $nameDb = "ecom";
 $conecta = mysqli_connect($server, $userDb, $passDb, $nameDb);
 
-function dadosProduto($conecta) {
-    $sql = "SELECT p.nome, p.preco, p.descricao, c.nome AS categoria
-    FROM produto p
-    INNER JOIN categoria c ON (p.categoriaID = c.categoriaID);";
-    $action = mysqli_query($conecta, $sql);
-    $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
-    return $dados;
+function dadosProduto($conecta, $categorias = []) {
+    $sql = "SELECT p.produtoID, p.nome, p.preco, p.descricao, c.nome AS categoria, c.categoriaID
+            FROM produto p
+            INNER JOIN categoria c ON p.categoriaID = c.categoriaID";
+    if (!empty($categorias)) {
+        $categorias = array_map('intval', $categorias);
+        $categorias = array_unique(array_filter($categorias, function ($id) {
+                return $id > 0;
+            })
+        );
+        if (!empty($categorias)) {
+            $ids = implode(',', $categorias);
+            $sql .= " WHERE c.categoriaID IN ($ids)";
+        }
+    }
+    $resultado = mysqli_query($conecta, $sql);
+    if (!$resultado) {
+        die("Erro na consulta: " . mysqli_error($conecta));
+    }
+    return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 }
 
-function todosDadosDoProduto($conecta) {
-    $sql = "SELECT p.produtoID, p.nome, p.preco, p.descricao, p.data, c.nome AS categoria, c.categoriaID
-    FROM produto p
-    INNER JOIN categoria c ON (p.categoriaID = c.categoriaID);";
-    $action = mysqli_query($conecta, $sql);
-    $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
-    return $dados;
+function cadastrarUsuario($conecta) {
+    if(isset($conecta)) {
+        $nome = mysqli_real_escape_string($conect, $_POST['nome']);
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+        $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+        if(empty($nome) or empty($email) or empty($senha)) {
+            echo "Preencha todos os campos";
+        }else{
+            $sql = "INSERT INTO usuarios (nome, senha, email, data)
+            VALUES ('$nome', '$senha', '$email', NOW())";
+            $action = mysqli_query($conecta, $sql);
+            if($action) {
+                echo "Usuário inserido com sucesso!";
+            }else{
+                echo "Ocorreu algum erro.";
+             }
+        }
+    }
 }
+
 
 function login($conecta) {
     if (isset($_POST['logar'])) {
@@ -47,5 +72,11 @@ function login($conecta) {
     }
 }
 
+function getCategorias($conecta){
+    $sql = "SELECT nome, categoriaID FROM categoria ORDER BY nome;";
+    $action = mysqli_query($conecta, $sql);
+    $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
+    return $dados;
+    }
 
 ?>

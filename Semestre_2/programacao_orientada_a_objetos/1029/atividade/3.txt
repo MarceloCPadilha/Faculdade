@@ -1,6 +1,6 @@
 1. Qual é a utilidade prática da instrução pass dentro do método emitir_som na
 superclasse Animal?
-    A keyword pass no método emitir_som na superclasse serve como um placeholder para definir um método genérico que obrigatóriamente precisa ser herdado pelas classes filhas.
+    A keyword pass no método emitir_som na superclasse serve como um placeholder sintático para definir um método genérico permitindo que seja herdado pelas classes filhas e sobreescritas livremente através do polimorfismo. O código rodará sem erros, mas não fará nada.
 
 2. O que aconteceria se você tentasse chamar o método cantar() a partir de uma
 instância da classe Cachorro? Justifique com base no conceito de métodos
@@ -9,4 +9,6 @@ independentes.
 
 3. Explique a diferença conceitual entre a Herança aplicada entre Animal e Cachorro e
 a Composição aplicada entre Animal e Consulta.
-    
+    A diferença conceitual está na relação e o ciclo de vida entre os objetos
+    A classe Cachorro tem uma relação de "É um" para a classe Animal, ou seja, a classe Cachorro é uma extensão da classe Animal
+    Enquanto a classe Animal tem uma relação de "Tem um" para a classe Consulta. Se a classe Animal for excluida suas Consultas também serão.

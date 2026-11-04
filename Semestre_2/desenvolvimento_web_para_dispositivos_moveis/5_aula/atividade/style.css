@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #444;
+    overflow: hidden;
+    position: relative;
+}
+
+img {
+    animation: travel 5s infinite ease-in-out;
+    position: absolute;
+    transform-origin: center center;
+}
+
+@keyframes travel {
+    0% {
+        top: 20px;
+        left: 20px;
+        transform: rotate(0deg);
+    }
+    10% {
+        top: 20px;
+        left: 20px;
+        transform: rotate(90deg);
+    }
+    45% {
+        top: calc(100vh - 70px);
+        left: calc(100vw - 70px);
+        transform: rotate(90deg);
+    }
+    55% {
+        top: calc(100vh - 70px);
+        left: calc(100vw - 70px);
+        transform: rotate(270deg);
+    }
+    90% {
+        top: 20px;
+        left: 20px;
+        transform: rotate(270deg);
+    }
+    100% {
+        top: 20px;
+        left: 20px;
+        transform: rotate(360deg);
+    }
+}
