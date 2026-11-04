@@ -13,7 +13,7 @@ require_once("functions.php");
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="container">
 
     <div class="container mx-5 mt-5">
         <a class="btn btn-danger" href="logout.php">LOGOUT</a>
