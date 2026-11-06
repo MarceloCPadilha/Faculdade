@@ -1,6 +1,7 @@
 <?php
 
 require_once("functions.php");
+session_start();
 !isset($_SESSION['ativa']) ? '' : header("location: catalogo.php");
 
 ?>

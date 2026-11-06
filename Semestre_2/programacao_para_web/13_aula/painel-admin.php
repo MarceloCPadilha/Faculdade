@@ -1,6 +1,7 @@
 <?php
 
 require_once("./functions.php");
+session_start();
 isset($_SESSION['ativa']) ? '' : header("location: login.php");
 
 
@@ -18,8 +19,8 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
 <body class="flex justify-content-center align-itens-center">
 
     <div class="flex">
-        <a class="btn btn-success" href="#"></a>
-        <a class="btn btn-success" href="#"></a>
+        <a class="btn btn-success" href="listarProduto.php">Editar Produtos</a>
+        <a class="btn btn-success" href="listarUsuario.php">Editar Usuários</a>
         <a class="btn btn-danger" href="./logout.php">LOGOUT</a>
     </div>
 

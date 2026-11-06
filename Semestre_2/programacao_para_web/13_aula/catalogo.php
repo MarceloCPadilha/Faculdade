@@ -1,5 +1,6 @@
 <?php
 require_once("functions.php");
+session_start();
 
 $categorias = getCategorias($conecta);
 $filtro = $_GET['categorias'] ?? [];
@@ -42,9 +43,12 @@ $dado = dadosProduto($conecta, $filtro);
 
     <div class="mx-5 mt-4 d-flex justify-content-center">
         <div class="d-inline-flex gap-2 align-middle">
-            <?php
-                isset($_SESSION['ativa']) ? "<a class='btn btn-success' href='login.php'>LOGIN</a>" : "<a class='btn btn-danger' href='logout.php'>LOGOUT</a>";
-            ?>
+            <?php if (isset($_SESSION['ativa'])): ?>
+                <a class="btn btn-danger" href="logout.php">LOGOUT</a>
+            <?php else: ?>
+                <a class="btn btn-success" href="login.php">LOGIN</a>
+                <a class="btn btn-success" href="cadastro.php">CADASTRO</a>
+            <?php endif; ?>
         </div>
     </div>
     <div class="container-fluid row px-5">

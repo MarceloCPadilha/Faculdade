@@ -6,8 +6,15 @@ $passDb = "";
 $nameDb = "ecom";
 $conecta = mysqli_connect($server, $userDb, $passDb, $nameDb);
 
+
+function listarUsuarios($conecta) {
+    $sql = "SELECT * FROM usuarios ORDER BY nome";
+    $action = mysqli_query($conecta, $sql);
+    $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
+    return $dados;
+}
 function dadosProduto($conecta, $categorias = []) {
-    $sql = "SELECT p.produtoID, p.nome, p.preco, p.descricao, c.nome AS categoria, c.categoriaID
+    $sql = "SELECT p.produtoID, p.nome, p.preco, p.imagem, p.descricao, p.data, c.nome AS categoria, c.categoriaID
             FROM produto p
             INNER JOIN categoria c ON p.categoriaID = c.categoriaID";
     if (!empty($categorias)) {
@@ -30,7 +37,7 @@ function dadosProduto($conecta, $categorias = []) {
 
 function cadastrarUsuario($conecta) {
     if(isset($conecta)) {
-        $nome = mysqli_real_escape_string($conect, $_POST['nome']);
+        $nome = mysqli_real_escape_string($conecta, $_POST['nome']);
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
         $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
         if(empty($nome) or empty($email) or empty($senha)) {
@@ -48,7 +55,6 @@ function cadastrarUsuario($conecta) {
     }
 }
 
-
 function login($conecta) {
     if (isset($_POST['logar'])) {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -60,9 +66,9 @@ function login($conecta) {
             if (!empty($retorno['email']) and password_verify($senha, $retorno['senha'])) {
                 session_start();
                 $_SESSION['email'] = $retorno['email'];
-                $_SESSION['nome'] = $retorno['nome'];
+                $_SESSION['nome'] = $retorno['nome'];   
                 $_SESSION['ativa'] = true;
-                header("location: usuarios.php");
+                header("location: catalogo.php");
             }else{
                 echo "Usuário ou senha incorretos!";
             }
@@ -79,4 +85,7 @@ function getCategorias($conecta){
     return $dados;
     }
 
+    function alterProduto($conecta) {
+        
+    }
 ?>

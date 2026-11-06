@@ -1,5 +1,6 @@
 <?php
 require_once("functions.php");
+session_start(); 
 !isset($_SESSION['ativa']) ? '' : header("location: catalogo.php");
 
 ?>
@@ -25,7 +26,11 @@ require_once("functions.php");
     <div class="d-flex justify-content-center align-items-center">
         <form method="post" class="border p-4 col-3 rounded shadow-sm bg-body-tertiary">
             <div class="aviso">
-                <!-- function call for register -->
+                <?php
+                    if (isset($_POST['cadastrar'])) {
+                        cadastrarUsuario($conecta);
+                    }
+                ?>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
