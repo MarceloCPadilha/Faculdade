@@ -42,8 +42,9 @@ $dado = dadosProduto($conecta, $filtro);
 
     <div class="mx-5 mt-4 d-flex justify-content-center">
         <div class="d-inline-flex gap-2 align-middle">
-            <a class="btn btn-success" href="login.php">LOGIN</a>
-            <a class="btn btn-danger" href="logout.php">LOGOUT</a>
+            <?php
+                isset($_SESSION['ativa']) ? "<a class='btn btn-success' href='login.php'>LOGIN</a>" : "<a class='btn btn-danger' href='logout.php'>LOGOUT</a>";
+            ?>
         </div>
     </div>
     <div class="container-fluid row px-5">
