@@ -17,20 +17,33 @@ function buscarUsuarioByID($conecta, $id) {
     return mysqli_fetch_assoc($action);
 }
 
+
 function buscarProdutoByID($conecta, $id) {
+
     $id = filter_var($id, FILTER_VALIDATE_INT);
+
     if (!$id) {
         return [];
     }
-    $sql = "SELECT p.produtoID, p.nome AS nome, p.preco,
-    COALESCE(NULLIF(p.imagem, ''), 'sem-foto.jpg') AS imagem,
-    p.descricao, p.data, c.nome as categoria, c.categoriaID
-    FROM produto p
-    INNER JOIN categoria c on p.categoriaID = c.categoriaID
-    WHERE p.produtoID = $id";
+
+    $sql = "SELECT p.produtoID, p.nome, p.preco, p.imagem, p.descricao, p.data, c.nome AS categoria, c.categoriaID
+            FROM produto p
+            INNER JOIN categoria c ON p.categoriaID = c.categoriaID
+            WHERE p.produtoID = $id";
     $action = mysqli_query($conecta, $sql);
-    return mysqli_fetch_assoc($action);
+    $produto = mysqli_fetch_assoc($action);
+    if (!$produto) {
+        return [];
+    }
+    if (!empty($produto['imagem'])) {
+        $produto['imagem'] = 'data:image/jpeg;base64,' .
+            base64_encode($produto['imagem']);
+    } else {
+        $produto['imagem'] = 'sem-foto.jpg';
+    }
+    return $produto;
 }
+
 
 function listarUsuarios($conecta) {
     $sql = "SELECT * FROM usuarios ORDER BY nome";
@@ -89,13 +102,6 @@ function cadastrarUsuario($conecta) {
     }
 }
 
-function updateProduct($conecta, $id) {
-    $id = filter_var($id, FILTER_VALIDATE_INT);
-    if(!empty($id) and isset($_POST['atualizar'])) {
-
-    }
-}
-
 function updateUser($conecta, $id) {
     $id = filter_var($id, FILTER_VALIDATE_INT);
     if (!empty($id) and isset($_POST['atualizar'])) {
@@ -151,9 +157,166 @@ function getCategorias($conecta){
     $action = mysqli_query($conecta, $sql);
     $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $dados;
+}
+
+
+
+function comprimirImagem($imagem) {
+    // Formato esperado da array $imagem
+    // Array ( 
+    // [name] =>  
+    // [full_path] =>  
+    // [type] => 
+    // [tmp_name] =>  
+    // [error] => 
+    // [size] => )
+    if ($imagem['error'] !== UPLOAD_ERR_OK) {
+        return false;
+    }
+    if ($imagem['size'] > 5 * 1024 * 1024) {
+        return false;
+    }
+    $info = getimagesize($imagem['tmp_name']);
+    // Formato esperado de $info 
+    // Array ( 
+    // [0] => 667 
+    // [1] => 436 
+    // [2] => 3 
+    // [3] => width="667" height="436" 
+    // [bits] => 8 
+    // [mime] => image/png )
+    if (!$info) {
+        return false;
+    }
+    $tiposPermitidos = [
+        'image/jpeg',
+        'image/png',
+        'image/webp'
+    ];
+    if (!in_array($info['mime'], $tiposPermitidos)) {
+        return false;
+    }
+    $largura = $info[0];
+    $altura = $info[1];
+    if ($largura > 4000 || $altura > 4000) {
+        return false;
+    }
+    switch ($info['mime']) {
+        case 'image/jpeg':
+            $imagemOriginal = imagecreatefromjpeg($imagem['tmp_name']);
+            break;
+
+        case 'image/png':
+            $imagemOriginal = imagecreatefrompng($imagem['tmp_name']);
+            break;
+
+        case 'image/webp':
+            $imagemOriginal = imagecreatefromwebp($imagem['tmp_name']);
+            break;
+
+        default:
+            return false;
+    }
+    if (!$imagemOriginal) {
+        return false;
+    }
+    $limite = 1200;
+    $proporcao = min(
+        $limite / $largura,
+        $limite / $altura,
+        1
+    );
+    $novaLargura = (int) round($largura * $proporcao);
+    $novaAltura = (int) round($altura * $proporcao);
+    $imagemFinal = imagecreatetruecolor(
+        $novaLargura,
+        $novaAltura
+    );
+    $branco = imagecolorallocate($imagemFinal, 255, 255, 255);
+    imagefill($imagemFinal, 0, 0, $branco);
+    imagecopyresampled(
+        $imagemFinal,
+        $imagemOriginal,
+        0, 0, 0, 0,
+        $novaLargura,
+        $novaAltura,
+        $largura,
+        $altura
+    );
+    ob_start();
+    imagejpeg($imagemFinal, null, 75);
+    $imagemComprimida = ob_get_clean();
+    return $imagemComprimida;
+}
+
+function updateProduct($conecta, $id) {
+
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if (!$id || !isset($_POST['atualizar'])) {
+        return;
     }
 
-    function upadateProduto($conecta) {
-        
+    $nome = mysqli_real_escape_string($conecta, trim($_POST['nome']));
+    $descricao = mysqli_real_escape_string($conecta, trim($_POST['descricao']));
+    $preco = filter_var($_POST['preco'], FILTER_VALIDATE_FLOAT);
+    $data = mysqli_real_escape_string($conecta, $_POST['data']);
+    $categoriaID = filter_var($_POST['categoriaID'], FILTER_VALIDATE_INT);
+
+    if (
+        empty($nome) || empty($descricao) ||
+        $preco === false ||
+        $preco < 0 ||
+        !$categoriaID
+    ) {
+        echo "Preencha os campos corretamente.";
+        return;
+    }
+
+    $imagem = null;
+
+    if (
+        isset($_FILES['imagem']) &&
+        $_FILES['imagem']['error'] !== UPLOAD_ERR_NO_FILE
+    ) {
+
+        $imagem = comprimirImagem($_FILES['imagem']);
+
+        if ($imagem === false) {
+            echo "Imagem inválida, muito grande ou em formato não permitido.";
+            return;
+        }
+
+        $imagem = mysqli_real_escape_string($conecta, $imagem);
+
+        $sql = "UPDATE produto SET
+                nome = '$nome',
+                descricao = '$descricao',
+                preco = '$preco',
+                data = '$data',
+                categoriaID = $categoriaID,
+                imagem = '$imagem'
+                WHERE produtoID = $id";
+
+    } else {
+
+        $sql = "UPDATE produto SET
+                nome = '$nome',
+                descricao = '$descricao',
+                preco = '$preco',
+                data = '$data',
+                categoriaID = $categoriaID
+                WHERE produtoID = $id";
+    }
+
+    $action = mysqli_query($conecta, $sql);
+
+    if ($action) {
+        header("Location: editarProduto.php?id=$id&sucesso=1");
+        exit;
+    } else {
+        echo "Erro ao atualizar produto: " . mysqli_error($conecta);
+    }
 }
+
 ?>

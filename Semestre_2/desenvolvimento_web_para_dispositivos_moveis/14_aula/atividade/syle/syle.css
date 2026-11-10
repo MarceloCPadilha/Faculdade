@@ -1,0 +1,12 @@
+.sticky {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        nav {
+            min-height: 9vh;
+        }
+        .carousel-item>img {
+            overflow: hidden;
+            object-fit: cover;
+        }

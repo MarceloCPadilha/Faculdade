@@ -39,6 +39,7 @@ session_start();
                 <input name="senha" type="password" class="form-control" id="exampleInputPassword1" required>
             </div>
             <button name="logar" class="btn btn-primary">Logar</button>
+            <a href="cadastro.php" class="btn btn-success">Cadastrar</a>
         </form>
     </div>
 

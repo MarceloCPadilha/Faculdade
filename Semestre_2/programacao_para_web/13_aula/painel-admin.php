@@ -18,7 +18,7 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
 </head>
 <body class="flex justify-content-center align-itens-center">
 
-    <div class="flex">
+    <div class="flex ">
         <a class="btn btn-success" href="listarProduto.php">Editar Produtos</a>
         <a class="btn btn-success" href="listarUsuario.php">Editar Usuários</a>
         <a class="btn btn-danger" href="./logout.php">LOGOUT</a>

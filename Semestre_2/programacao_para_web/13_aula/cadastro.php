@@ -23,7 +23,7 @@ session_start();
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center mt-5">
         <form method="post" class="border p-4 col-3 rounded shadow-sm bg-body-tertiary">
             <div class="aviso">
                 <?php
@@ -47,7 +47,7 @@ session_start();
             </div>
                 <div class="d-inline-flex">
                 <button name="cadastrar" class="btn btn-primary mx-2 p-1">Cadastrar</button>
-                <a class="btn btn-success mx-2 p-1">Já tem uma conta?</a>
+                <a href="login.php" class="btn btn-success mx-2 p-1">Já tem uma conta?</a>
             </div>
         </form>
     </div>
