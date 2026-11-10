@@ -35,7 +35,7 @@ function buscaID($conecta, $id) {
     if(!empty($id)) {
         $sql = "SELECT * FROM usuarios WHERE id = $id";
         $action = mysqli_query($conecta, $sql);
-        $dados = mysqli_asssoc($action);
+        $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
         return $dados;
     }
 }
@@ -70,7 +70,7 @@ function insertUser($conecta) {
 }
 
 function updateUser($conecta, $id) {
-    $id = filter_var($id, FILTER_VALIDATE_ITN);
+    $id = filter_var($id, FILTER_VALIDATE_INT);
     if (!empty($id) and isset($_POST['atualizar'])) {
         $nome = mysqli_real_escape_string($conecta, $_POST["nome"]);
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);

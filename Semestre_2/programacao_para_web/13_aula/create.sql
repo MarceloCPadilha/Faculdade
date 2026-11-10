@@ -14,7 +14,7 @@ CREATE TABLE produto(
     imagem MEDIUMBLOB,
     FOREIGN KEY (categoriaID) REFERENCES categoria(categoriaID)
 );
-    
+
 CREATE TABLE usuarios(
     usuarioID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(20) NOT NULL,

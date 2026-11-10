@@ -20,7 +20,7 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
 
 <body>
 
-    <?php $dados = DadosProduto($conecta); ?>
+    <?php $dados = dadosProduto($conecta); ?>
 
     <div class="container mt-4">
         <table border="1" class="table">
@@ -40,11 +40,10 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
             </thead>
             <tbody>
                 <?php
-                print_r($dados);
                 foreach ($dados as $dado): ?>
                     <tr>
                         <td><?php echo $dado["produtoID"]; ?></td>
-                        <td>imagem</td>
+                        <td><?php echo $dado["imagem"]?></td>
                         <td><?php echo $dado["nome"]; ?></td>
                         <td><?php echo $dado["preco"]; ?></td>
                         <td><?php echo $dado["descricao"]; ?></td>
@@ -63,7 +62,7 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
                             </a>
                             <span style="color: black; padding: 0 4px 0 4px;">|</span>
                             <a style="text-decoration: none; color: orange;"
-                                href="editar.php?id=<?php echo $dado['produtoID']; ?>">
+                                href="editarProduto.php?id=<?php echo $dado['produtoID']; ?>">
                                 Editar
                             </a>
                         </td>

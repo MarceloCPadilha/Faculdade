@@ -6,6 +6,31 @@ $passDb = "";
 $nameDb = "ecom";
 $conecta = mysqli_connect($server, $userDb, $passDb, $nameDb);
 
+function buscarUsuarioByID($conecta, $id) {
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if (!$id) {
+        return [];
+    }
+    $sql = "SELECT usuarioID, nome, email, data FROM usuarios
+    WHERE usuarioID = $id";
+    $action = mysqli_query($conecta, $sql);
+    return mysqli_fetch_assoc($action);
+}
+
+function buscarProdutoByID($conecta, $id) {
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if (!$id) {
+        return [];
+    }
+    $sql = "SELECT p.produtoID, p.nome AS nome, p.preco,
+    COALESCE(NULLIF(p.imagem, ''), 'sem-foto.jpg') AS imagem,
+    p.descricao, p.data, c.nome as categoria, c.categoriaID
+    FROM produto p
+    INNER JOIN categoria c on p.categoriaID = c.categoriaID
+    WHERE p.produtoID = $id";
+    $action = mysqli_query($conecta, $sql);
+    return mysqli_fetch_assoc($action);
+}
 
 function listarUsuarios($conecta) {
     $sql = "SELECT * FROM usuarios ORDER BY nome";
@@ -35,6 +60,15 @@ function dadosProduto($conecta, $categorias = []) {
     return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 }
 
+
+function buscarCategorias($conecta) {
+    $sql = "SELECT categoriaID, nome FROM categoria ORDER BY nome";
+    $action = mysqli_query($conecta, $sql);
+    $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
+    return $dados;
+
+}
+
 function cadastrarUsuario($conecta) {
     if(isset($conecta)) {
         $nome = mysqli_real_escape_string($conecta, $_POST['nome']);
@@ -54,6 +88,40 @@ function cadastrarUsuario($conecta) {
         }
     }
 }
+
+function updateProduct($conecta, $id) {
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if(!empty($id) and isset($_POST['atualizar'])) {
+
+    }
+}
+
+function updateUser($conecta, $id) {
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if (!empty($id) and isset($_POST['atualizar'])) {
+        $nome = mysqli_real_escape_string($conecta, $_POST["nome"]);
+        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+        $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+        $data = mysqli_real_escape_string($conecta, $_POST["nome"]);
+
+        if (empty($nome) or empty($email)) {
+            echo "Preencha todos os campos corretamente.";
+        } else {
+            $sql = $sql = "UPDATE usuarios SET nome = '$nome', email = '$email', data = '$data'";
+            $sql .= !empty($_POST['senha']) ? ", senha = 'senha' " : "";
+            $sql .= "WHERE id = $id";
+            // ------
+            $action = mysqli_query($conecta, $sql);
+            if ($action) {
+                echo "Usuário Atualizado com sucesso!";
+                header("Refresh: 3; url=usuarios.php");
+            } else {
+                echo "Erro ao atualizar";
+            }
+        }
+    }
+}
+
 
 function login($conecta) {
     if (isset($_POST['logar'])) {
@@ -85,7 +153,7 @@ function getCategorias($conecta){
     return $dados;
     }
 
-    function alterProduto($conecta) {
+    function upadateProduto($conecta) {
         
-    }
+}
 ?>

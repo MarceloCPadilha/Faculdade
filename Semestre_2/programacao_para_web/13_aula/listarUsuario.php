@@ -45,7 +45,7 @@
                             </a>
                             <span style="color: black; padding: 0 4px 0 4px;">|</span>
                             <a style="text-decoration: none; color: orange;"
-                                href="editar.php?id=<?php echo $usuario['usuarioID']; ?>">
+                                href="editarUsuario.php?id=<?php echo $usuario['usuarioID']; ?>">
                                 Editar
                             </a>
                     </td>
