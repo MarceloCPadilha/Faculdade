@@ -1,7 +1,11 @@
 <?php
 require_once "functions.php";
 session_start();
-isset($_SESSION['ativa']) ? '' : header("location: index.php");
+if (!isset($_SESSION['ativa']) || $_SESSION['ativa'] !== true) {
+    header("Location: catalogo.php");
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,36 +21,36 @@ isset($_SESSION['ativa']) ? '' : header("location: index.php");
 
 <body>
 
-    <?php
-    $id = $_GET['id'];
-    $usuario = buscarUsuarioByID($conecta, $id);
-    ?>
-    <h1>
-        Editando o usuário <?php echo $usuario["nome"]; ?>
-    </h1>
+    <div class="container mt-5">
+        <?php
+        $id = $_GET['id'];
+        $usuario = buscarUsuarioByID($conecta, $id);
+        ?>
+        <h1>
+            Editando o usuário <?php echo $usuario["nome"]; ?>
+        </h1>
+        <form method="POST">
+            <input type="hidden" name="id" value="<?php echo $usuario["usuarioID"]; ?>">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" name="nome" value="<?php echo htmlspecialchars($usuario["nome"]); ?>" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" value="<?php echo htmlspecialchars($usuario["email"]); ?>" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Password</label>
+                <input type="password" name="senha" class="form-control" id="senha" placeholder="Deixe vazio para manter a senha atual">
+            </div>
+            <div class="mb-3">
+                <label for="data" class="form-label">Data</label>
+                <input type="date" name="data" class="form-control" id="data" value="<?php echo $usuario["data"]; ?>" required>
+            </div>
+            <button type="submit" name="atualizar" class="btn btn-primary">Atualizar</button>
+        </form>
+    </div>
 
-    <form>
-        <div class="mb-3">
-            <input type="hidden" name="id" class="form-control" id="exampleInputEmail1" value="<?php echo $usuario["usuarioID"]; ?>" aria-describedby="emailHelp" required >
-        </div>
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="email" name="nome" value="<?php echo $usuario["nome"]; ?>" class="form-control" id="nome" required>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" name="nome" class="form-control" id="exampleInputEmail1"required>
-        </div>
-        <div class="mb-3">
-            <label for="senha" class="form-label">Password</label>
-            <input type="password" name="senha" class="form-control" id="senha" placeholder="*****">
-        </div>
-        <div class="mb-3">
-            <label for="data" class="form-label">data</label>
-            <input type="date" name="data" class="form-control" id="senha" value="<?php echo $usuario["data"]?>" required>
-        </div>
-        <button type="submit" name="atualizar" class="btn btn-primary">Atualizar</button>
-    </form>
 
     <?php updateUser($conecta, $id); ?>
 </body>

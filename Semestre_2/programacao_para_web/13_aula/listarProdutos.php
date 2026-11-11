@@ -20,7 +20,7 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
 
 <body>
 
-    <?php $dados = dadosProduto($conecta); ?>
+    <?php $dados = listarProdutos($conecta); ?>
 
     <div class="container mt-4">
         <table border="1" class="table">
@@ -43,7 +43,7 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
                 foreach ($dados as $dado): ?>
                     <tr>
                         <td><?php echo $dado["produtoID"]; ?></td>
-                        <td><?php echo $dado["imagem"]?></td>
+                        <td><img src="<?php echo $dado['imagem']; ?>" alt="Imagem do produto" style="max-width: 150px; max-height: 150px;"></td>
                         <td><?php echo $dado["nome"]; ?></td>
                         <td><?php echo $dado["preco"]; ?></td>
                         <td><?php echo $dado["descricao"]; ?></td>
@@ -57,7 +57,7 @@ isset($_SESSION['ativa']) ? '' : header("location: login.php");
                         <td><?php echo $dado["categoria"]; ?></td>
                         <td>
                             <a style="text-decoration: none; color: red;"
-                                href="deletar.php?id=<?php echo $dado['produtoID']; ?>&nome=<?php echo $dado['nome']; ?>">
+                                href="deletar.php?tipo=produto&id=<?php echo $dado['produtoID']; ?>&nome=<?php echo urlencode($dado['nome']); ?>">
                                 Excluir
                             </a>
                             <span style="color: black; padding: 0 4px 0 4px;">|</span>

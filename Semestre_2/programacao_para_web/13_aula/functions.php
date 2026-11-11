@@ -17,15 +17,20 @@ function buscarUsuarioByID($conecta, $id) {
     return mysqli_fetch_assoc($action);
 }
 
+function decompressedIMG($image) {
+    if (!empty($image)) {
+        $image = 'data:image/jpeg;base64,' . base64_encode($image);
+    } else {
+        $image = 'produtoplaceholder.png';
+    }
+    return $image;
+}
 
 function buscarProdutoByID($conecta, $id) {
-
     $id = filter_var($id, FILTER_VALIDATE_INT);
-
     if (!$id) {
         return [];
     }
-
     $sql = "SELECT p.produtoID, p.nome, p.preco, p.imagem, p.descricao, p.data, c.nome AS categoria, c.categoriaID
             FROM produto p
             INNER JOIN categoria c ON p.categoriaID = c.categoriaID
@@ -35,15 +40,11 @@ function buscarProdutoByID($conecta, $id) {
     if (!$produto) {
         return [];
     }
-    if (!empty($produto['imagem'])) {
-        $produto['imagem'] = 'data:image/jpeg;base64,' .
-            base64_encode($produto['imagem']);
-    } else {
-        $produto['imagem'] = 'sem-foto.jpg';
-    }
+
+    $produto['imagem'] = decompressedIMG($produto['imagem']);
+
     return $produto;
 }
-
 
 function listarUsuarios($conecta) {
     $sql = "SELECT * FROM usuarios ORDER BY nome";
@@ -51,7 +52,7 @@ function listarUsuarios($conecta) {
     $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $dados;
 }
-function dadosProduto($conecta, $categorias = []) {
+function listarProdutos($conecta, $categorias = []) {
     $sql = "SELECT p.produtoID, p.nome, p.preco, p.imagem, p.descricao, p.data, c.nome AS categoria, c.categoriaID
             FROM produto p
             INNER JOIN categoria c ON p.categoriaID = c.categoriaID";
@@ -59,8 +60,7 @@ function dadosProduto($conecta, $categorias = []) {
         $categorias = array_map('intval', $categorias);
         $categorias = array_unique(array_filter($categorias, function ($id) {
                 return $id > 0;
-            })
-        );
+            }));
         if (!empty($categorias)) {
             $ids = implode(',', $categorias);
             $sql .= " WHERE c.categoriaID IN ($ids)";
@@ -70,16 +70,20 @@ function dadosProduto($conecta, $categorias = []) {
     if (!$resultado) {
         die("Erro na consulta: " . mysqli_error($conecta));
     }
-    return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
-}
+    $produtos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 
+    foreach ($produtos as &$produto) {
+        $produto['imagem'] = decompressedIMG($produto['imagem']);
+    }
+
+    return $produtos;
+}
 
 function buscarCategorias($conecta) {
     $sql = "SELECT categoriaID, nome FROM categoria ORDER BY nome";
     $action = mysqli_query($conecta, $sql);
     $dados = mysqli_fetch_all($action, MYSQLI_ASSOC);
     return $dados;
-
 }
 
 function cadastrarUsuario($conecta) {
@@ -95,6 +99,7 @@ function cadastrarUsuario($conecta) {
             $action = mysqli_query($conecta, $sql);
             if($action) {
                 echo "Usuário inserido com sucesso!";
+                header("Location: login.php");
             }else{
                 echo "Ocorreu algum erro.";
              }
@@ -102,32 +107,33 @@ function cadastrarUsuario($conecta) {
     }
 }
 
+
 function updateUser($conecta, $id) {
     $id = filter_var($id, FILTER_VALIDATE_INT);
-    if (!empty($id) and isset($_POST['atualizar'])) {
-        $nome = mysqli_real_escape_string($conecta, $_POST["nome"]);
-        $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    if (!$id || !isset($_POST['atualizar'])) {
+        return;
+    }
+    $nome = mysqli_real_escape_string($conecta, trim($_POST["nome"]));
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    $data = mysqli_real_escape_string($conecta, $_POST["data"]);
+    if (empty($nome) || empty($email) || empty($data)) {
+        echo "Preencha todos os campos corretamente.";
+        return;
+    }
+    $sql = "UPDATE usuarios SET nome = '$nome', email = '$email', data = '$data'";
+    if (!empty($_POST['senha'])) {
         $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
-        $data = mysqli_real_escape_string($conecta, $_POST["nome"]);
-
-        if (empty($nome) or empty($email)) {
-            echo "Preencha todos os campos corretamente.";
-        } else {
-            $sql = $sql = "UPDATE usuarios SET nome = '$nome', email = '$email', data = '$data'";
-            $sql .= !empty($_POST['senha']) ? ", senha = 'senha' " : "";
-            $sql .= "WHERE id = $id";
-            // ------
-            $action = mysqli_query($conecta, $sql);
-            if ($action) {
-                echo "Usuário Atualizado com sucesso!";
-                header("Refresh: 3; url=usuarios.php");
-            } else {
-                echo "Erro ao atualizar";
-            }
-        }
+        $sql .= ", senha = '$senha'";
+    }
+    $sql .= " WHERE usuarioID = $id";
+    $action = mysqli_query($conecta, $sql);
+    if ($action) {
+        header("Location: listarUsuarios.php");
+        exit;
+    } else {
+        echo "Erro ao atualizar: " . mysqli_error($conecta);
     }
 }
-
 
 function login($conecta) {
     if (isset($_POST['logar'])) {
@@ -139,6 +145,7 @@ function login($conecta) {
             $retorno = mysqli_fetch_assoc($action);
             if (!empty($retorno['email']) and password_verify($senha, $retorno['senha'])) {
                 session_start();
+                $_SESSION['usuarioID'] = $retorno['usuarioID'];
                 $_SESSION['email'] = $retorno['email'];
                 $_SESSION['nome'] = $retorno['nome'];   
                 $_SESSION['ativa'] = true;
@@ -159,8 +166,44 @@ function getCategorias($conecta){
     return $dados;
 }
 
+function deleteUser($conecta, $id) {
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if (!$id) {
+        return;
+    }
+    $sql = "DELETE FROM usuarios WHERE usuarioID = $id";
+    $action = mysqli_query($conecta, $sql);
+    if ($action) {
+        if (isset($_SESSION['usuarioID']) && $_SESSION['usuarioID'] == $id) {
+            session_unset();
+            session_destroy();
+            header("Location: catalogo.php");
+            exit;
+        }
+        header("Location: listarUsuarios.php");
+        exit;
+    } else {
+        echo "Erro ao deletar o usuário: " . mysqli_error($conecta);
+    }
+}
+
+function deleteProduct($conecta, $id) {
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+    if (!$id) { return; }
+    $sql = "DELETE FROM produto WHERE produtoID = $id";
+    $action = mysqli_query($conecta, $sql);
+
+    if ($action) {
+        header("Location: listarProdutos.php");
+        exit;
+    } else {
+        echo "Erro ao deletar o produto: " . mysqli_error($conecta);
+    }
+}
 
 
+// Se for usar o xampp deve habilitar a função GD dentro das configs do xampp
+// Em PHP (php.ini) => ;extension=gd => extension=gd
 function comprimirImagem($imagem) {
     // Formato esperado da array $imagem
     // Array ( 

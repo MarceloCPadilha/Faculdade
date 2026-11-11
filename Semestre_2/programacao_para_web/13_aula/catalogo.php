@@ -4,7 +4,7 @@ session_start();
 
 $categorias = getCategorias($conecta);
 $filtro = $_GET['categorias'] ?? [];
-$dado = dadosProduto($conecta, $filtro);
+$dado = listarProdutos($conecta, $filtro);
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ $dado = dadosProduto($conecta, $filtro);
             <?php foreach($dado as $dados) : ?>
                 <div class="col-md-3 mt-4">
                     <div class="card h-100">
-                        <img src="produtoplaceholder.png" class="card-img-top img-fluid" alt="...">
+                        <img src="<?php echo $dados['imagem']; ?>" class="card-img-top img-fluid" alt="Imagem do produto">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><?php echo $dados["nome"];?></h5>
                             <p class="card-text">Descrição: <?php echo $dados["descricao"]?></p>

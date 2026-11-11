@@ -1,7 +1,7 @@
 <?php
     require_once "functions.php";
     session_start();
-    isset($_SESSION['ativa']) ? '' : header("location: index.php");
+    isset($_SESSION['ativa']) ? '' : header("location: catalogo.php");
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +40,14 @@
                     </td>
                     <td>
                         <a style="text-decoration: none; color: red;"
-                                href="deletar.php?id=<?php echo $usuario['usuarioID']; ?>&nome=<?php echo $usuario['nome']; ?>">
-                                Excluir
-                            </a>
-                            <span style="color: black; padding: 0 4px 0 4px;">|</span>
-                            <a style="text-decoration: none; color: orange;"
-                                href="editarUsuario.php?id=<?php echo $usuario['usuarioID']; ?>">
-                                Editar
-                            </a>
+                            href="deletar.php?tipo=usuario&id=<?php echo $usuario['usuarioID']; ?>&nome=<?php echo urlencode($usuario['nome']); ?>">
+                            Excluir
+                        </a>
+                        <span style="color: black; padding: 0 4px 0 4px;">|</span>
+                        <a style="text-decoration: none; color: orange;"
+                            href="editarUsuario.php?id=<?php echo $usuario['usuarioID']; ?>">
+                            Editar
+                        </a>
                     </td>
                 </tr>
 

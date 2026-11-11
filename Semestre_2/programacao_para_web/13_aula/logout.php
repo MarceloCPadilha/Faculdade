@@ -1,1 +1,1 @@
-<?php session_start();session_unset();session_destroy();header("location: catalogo.php");?>
+<?php session_start();session_unset();session_destroy();header("location: catalogo.php");exit;?>

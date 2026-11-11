@@ -7,17 +7,21 @@
     <title>Energia Solar</title>
     <link rel="stylesheet" href="./syle/syle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
+    
     <header class="sticky">
         <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-            <div class="container d-flex justify-content-evenly">
+            <div class="container d-flex">
                 <a class="navbar-brand" href="#">Energium</a>
-
-                <div class="navbar-nav d-flex justify-content-evenly">
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#menuLateral"
+                    aria-controls="menuLateral">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-nav d-none d-lg-flex justify-content-evenly">
                     <a class="nav-link active" href="#">Home</a>
                     <a class="nav-link" href="#empresa">Empresa</a>
                     <a class="nav-link" href="#servicos">Serviços</a>
@@ -26,6 +30,23 @@
             </div>
         </nav>
     </header>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral">
+        <div class="offcanvas-header bg-success text-white">
+            <h5 class="offcanvas-title">Energium</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas">
+            </button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#" >Home</a>
+                <a class="nav-link" href="#empresa" >Empresa</a>
+                <a class="nav-link" href="#servicos" >Serviços</a>
+                <a class="nav-link" href="#contato" >Contato</a>
+            </div>
+        </div>
+    </div>
 
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -52,8 +73,7 @@
             <span class="visually-hidden">Anterior</span>
         </button>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Próximo</span>
         </button>
@@ -239,5 +259,8 @@
             <p class="mb-0">&copy; 2026 Energium - Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
 </html>
